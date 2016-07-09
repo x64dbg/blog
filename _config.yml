@@ -19,5 +19,4 @@ author:
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
-gems: [jekyll-paginate, jekyll-gist, rouge]
+gems: [jekyll-paginate, jekyll-gist]
