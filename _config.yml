@@ -19,4 +19,4 @@ author:
 
 # Build settings
 markdown: kramdown
-gems: [jekyll-paginate, jekyll-gist]
+gems: [jekyll-paginate, jekyll-gist, jekyll-sitemap]
