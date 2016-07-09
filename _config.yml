@@ -1,7 +1,6 @@
 # Site settings
 title: x64dbg
 tagline: Official x64dbg blog!
-email: blog@x64dbg.com
 description: Official x64dbg blog!
 baseurl: /blog
 url: http://x64dbg.com/blog
@@ -16,6 +15,7 @@ github:
 author:
   name: 'x64dbg'
   url: http://x64dbg.com
+  email: blog@x64dbg.com
 
 # Build settings
 markdown: kramdown
