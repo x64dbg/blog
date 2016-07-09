@@ -5,7 +5,7 @@ author: Anonymous
 website: http://x64dbg.com
 ---
 
-## How do we reverse engineer a program these days
+## How do we reverse engineer a program these days?
 
 For many guys, reverse engineering is just a simple "NOP" -- Set a breakpoint on MessageBox, run, then trace back the stack and revert some conditional jumps. But when we are faced with more programs, things change.
 
