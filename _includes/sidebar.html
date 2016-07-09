@@ -10,23 +10,22 @@
     </div>
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
-
-      {% comment %}
-        The code below dynamically generates a sidebar nav of pages with
-        `layout: page` in the front-matter. See readme for usage.
-      {% endcomment %}
-
-      <a class="sidebar-nav-item" href="http://x64dbg.com">x64dbg</a>
+      <a class="sidebar-nav-item" href="http://x64dbg.com">Home</a>
+      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Blog</a>
       <a class="sidebar-nav-item" href="http://releases.x64dbg.com">Download</a>
       <a class="sidebar-nav-item" href="http://source.x64dbg.com">Source</a>
-      <a class="sidebar-nav-item" href="http://donate.x64dbg.com">Donate</a>
       <a class="sidebar-nav-item" href="http://help.x64dbg.com">Documentation</a>
+      <a class="sidebar-nav-item" href="http://donate.x64dbg.com">Donate</a>
       <a class="sidebar-nav-item" href="http://wiki.x64dbg.com">Wiki</a>
       <a class="sidebar-nav-item" href="http://issues.x64dbg.com">Issues</a>
       <a class="sidebar-nav-item" href="http://faq.x64dbg.com">FAQ</a>
       <a class="sidebar-nav-item" href="http://contribute.x64dbg.com">Contribute</a>
       <a class="sidebar-nav-item" href="http://telegram.x64dbg.com">Telegram</a>
+
+      {% comment %}
+        The code below dynamically generates a sidebar nav of pages with
+        `layout: page` in the front-matter. See readme for usage.
+      {% endcomment %}
 
       {% assign pages_list = site.pages %}
       {% for node in pages_list %}
