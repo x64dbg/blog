@@ -14,6 +14,7 @@ This will be the official blog for [x64dbg](http://x64dbg.com). **This blog is l
 - Feature showcase <small>(cool features you want to demonstrate)</small>.
 - Plugin showcase.
 - Script showcase.
+- Features currently in development.
 - Anything else related to x64dbg...
 
 ## Writing a post
