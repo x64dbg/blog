@@ -4,7 +4,7 @@ title: Home
 ---
 
 <div class="posts">
-  {% for post in paginator.posts %}
+  {% for post in paginator.posts limit:1 %}
   <div class="post">
     <h1 class="post-title">
       <a href="{{ site.baseurl }}{{ post.url }}">
@@ -16,6 +16,41 @@ title: Home
 
     {{ post.content }}
   </div>
+
+  <h2 id="comments">Comments</h2>
+
+  <div id="disqus_thread"></div>
+  <script>
+      var disqus_config = function () {
+          this.page.url = '{{ site.url }}{{ post.url }}';
+          this.page.title = '{{ post.title }}';
+      };
+
+      (function() {  // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+        
+          s.src = '//x64dbg.disqus.com/embed.js';
+        
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  {% endfor %}
+
+  {% for post in paginator.posts offset:1 %}
+  <div class="post">
+    <h1 class="post-title">
+      <a href="{{ site.baseurl }}{{ post.url }}">
+        {{ post.title }}
+      </a>
+    </h1>
+
+    <span class="post-date">{{ post.date | date_to_string }}, by <a href="{{ post.website }}">{{ post.author}}</a></span>
+
+    {{ post.content }}
+  </div>
+  <p><a href="{{ site.baseurl }}{{ post.url }}#comments">Comments</a></p>
   {% endfor %}
 </div>
 
