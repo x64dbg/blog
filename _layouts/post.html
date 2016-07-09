@@ -16,7 +16,7 @@ layout: default
         <h3>
           <a href="{{ site.baseurl }}{{ post.url }}">
             {{ post.title }}
-            <small>{{ post.date | date_to_string }}{% if post.author != blank %}, by {{ post.author }}{% endif %}</small>
+            <small>{{ post.date | date_to_string }}, by <a href="{{ post.website }}">{{ post.author}}</a></small>
           </a>
         </h3>
       </li>
