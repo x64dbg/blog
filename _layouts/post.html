@@ -8,13 +8,15 @@ layout: default
   {{ content }}
 </div>
 
-<div id="disqus_thread"></div>
+<div id="disqus_thread">
+  <h2 id="comments">Comments</h2>
+</div>
 <script>
     var disqus_config = function () {
         this.page.url = '{{ site.url }}{{ page.url }}';
         this.page.title = '{{ page.title }}';
     };
-    
+
     (function() {  // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
         
