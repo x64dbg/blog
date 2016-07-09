@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Looking for writers!
-author: Duncan (mrexodia)
+author: mrexodia
 website: http://mrexodia.cf
 ---
 
@@ -18,4 +18,4 @@ This will be the official blog for [x64dbg](http://x64dbg.com). **This blog is l
 
 Thanks,
 
-Duncan (mrexodia)
+Duncan
