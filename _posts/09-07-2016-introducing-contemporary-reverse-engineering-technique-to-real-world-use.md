@@ -5,8 +5,6 @@ author: Anonymous
 website: http://x64dbg.com
 ---
 
-#Introducing Contemporary Reverse Engineering Techniques to Real World Use
-
 ## How do we reverse engineer a program these days
 
 For many guys, reverse engineering is just a simple "NOP" -- Set a breakpoint on MessageBox, run, then trace back the stack and revert some conditional jumps. But when we are faced with more programs, things change.
@@ -52,11 +50,11 @@ While trace record is useful in debugging, its power is only fully shown when it
 techniques cannot fool the analyzer now because we have sights into the future. Of course, we can do common optimizations such as dead code elimination and constant folding, draw the real control flow graph and outline its algorithm. But  
 if we dig into the data further, we can find more creative ways to analyze the program. Think we construct a graph associating memory accesses with functions like the picture below:
 
-{{ site.baseurl }}/public/images/blog20160709-example-variable-access-pattern.png
+[![access pattern]({{ site.baseurl }}/public/images/blog20160709-example-variable-access-pattern.png)]({{ site.baseurl }}/public/images/blog20160709-example-variable-access-pattern.png)
 
 We can transform the graph to the following graph:
 
-{{ site.baseurl }}/public/images/blog20160709-example-variable-access-pattern-restructured.png
+[![pattern restructured]({{ site.baseurl }}/public/images/blog20160709-example-variable-access-pattern-restructured.png)]({{ site.baseurl }}/public/images/blog20160709-example-variable-access-pattern-restructured.png)
 
 As you can see, there is obvious separation on variable access pattern. Since Part2 of the graph employs some anti-debugging trick, it can be deduced that it must be the protection shell, and the other parts, Part1 and Part3, are likely  
 to be normal functions. Then we can remove specific functions from the control flow and get a cleaner control flow or even unpack it. In real world, there are some connections between protection software and the protected software, but  
