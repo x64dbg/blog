@@ -3,8 +3,8 @@ title: x64dbg
 tagline: Official x64dbg blog!
 email: blog@x64dbg.com
 description: Official x64dbg blog!
-baseurl: /blog/
-url: http://x64dbg.com
+baseurl: /blog
+#url: http://x64dbg.com
 twitter_username: x64dbg
 github_username: x64dbg
 
