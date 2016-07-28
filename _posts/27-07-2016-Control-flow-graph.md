@@ -19,7 +19,7 @@ The first thing to look at is analysis of a function. We represent the function 
 
 [![function1]({{ site.baseurl }}/public/images/blog27072916-function1.png)]({{ site.baseurl }}/public/images/blog27072916-function1.png)
 
-For this use case a basic block is a block of instructions that *do not alter the control flow *within the current function*. We (falsely) assume that `call` instructions always return to the instruction after said `call` instruction so the control flow of the block is not interrupted. Additionally a basic block ends at a `ret` instruction (since that marks the end of the current function).
+In this case a basic block is a block of instructions, that *do not alter the control flow within the current function*. We (falsely) assume that `call` instructions always return to the instruction after said `call` instruction so the control flow of the block is not interrupted. Additionally a basic block ends at a `ret` instruction (since that marks the end of the current function).
 
 Since the function is (implicitly) represented as a graph we can use [breadth first search (BFS)](https://en.wikipedia.org/wiki/Breadth-first_search) to traverse it. The algorithm implemented here combines the BFS with building the graph, which makes it quite compact and easy to understand (pseudocode):
 
