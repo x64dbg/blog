@@ -1,13 +1,13 @@
 ---
 layout: post
-title: Control flow graph
+title: Control flow analysis and graphing
 author: mrexodia
 website: http://mrexodia.cf
 ---
 
-Today's post will be about control flow analysis and graphing, read on if you are interested!
+Today's post will be about control flow analysis and graphing, so read on if you are interested!
 
-**This blog is still looking for writers!** See [here](https://github.com/x64dbg/blog) for more information...
+**This blog is still looking for writers!** See [here](/blog/2016/07/09/Looking-for-writers.html) for more information...
 
 ## Introduction
 
@@ -23,7 +23,7 @@ In this case a basic block is a block of instructions, that *do not alter the co
 
 Since the function is (implicitly) represented as a graph we can use [breadth first search (BFS)](https://en.wikipedia.org/wiki/Breadth-first_search) to traverse it. The algorithm implemented here combines the BFS with building the graph, which makes it quite compact and easy to understand (pseudocode):
 
-```
+```python
 analyze(entryPoint):
     graph = new Graph(entryPoint)
     queue = new Queue()
@@ -66,7 +66,7 @@ At the moment analysis is not working correctly. The analysis will have overlapp
 
 The first block should be split and a second pass easily solves this problem:
 
-```
+```python
 foreach node in nodes:
     addr = node.start
     size = disassemble(addr).size
