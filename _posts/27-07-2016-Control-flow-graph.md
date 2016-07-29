@@ -90,9 +90,9 @@ You can find the full code [here](https://github.com/x64dbg/x64dbg/blob/47f044ee
 
 ## GUI
 
-Now the next part was showing the function graph in the GUI, there was quite an effort [before](https://github.com/x64dbg/x64dbg/tree/graph_ogfd_new) doing this using [OGDF](http://www.ogdf.net) and someone mentioned the [Binary Ninja Prototype](https://github.com/Vector35/deprecated-binaryninja-python) so I decided to port that instead.
+Now the next part was showing the function graph in the GUI, [there was quite an effort before](https://github.com/x64dbg/x64dbg/tree/graph_ogfd_new) doing this using [OGDF](http://www.ogdf.net), but this created various problems. Recently someone mentioned the [Binary Ninja Prototype](https://github.com/Vector35/deprecated-binaryninja-python) to me, so I decided to port that instead.
 
-After about 7 hours of struggling with Python I ported the code and [people seem to like the results](https://twitter.com/GelosSnake/status/758644519189540864) :)
+After about 7 hours of struggling with porting Python to C++, I ported the code and [people seem to like the results](https://twitter.com/GelosSnake/status/758644519189540864) :)
 
 The details of the layout algorithm are beyond me and if you have any fixes, feel free to create a pull request!
 
