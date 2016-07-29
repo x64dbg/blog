@@ -33,10 +33,10 @@ analyze(entryPoint):
     queue.enqueue(graph.entryPoint)
     
     # Traverse the graph
-    while !queue.empty():
+    while not queue.empty():
         # Check if we already visited this node
         start = queue.dequeue()
-        if !start || visited.contains(start):
+        if start == 0 || visited.contains(start):
             continue
         visited.insert(start)
         
@@ -67,7 +67,7 @@ At the moment analysis is not working correctly. The analysis will have overlapp
 The first block should be split and a second pass easily solves this problem:
 
 ```python
-foreach node in nodes:
+for node in nodes:
     addr = node.start
     size = disassemble(addr).size
     if graph.contains(addr + size):
