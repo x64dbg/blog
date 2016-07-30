@@ -20,8 +20,8 @@ website: http://www.LetTheLight.in
 * [The pluginit exported function](#the-pluginit-exported-function)
 * [The plugsetup exported function](#the-plugsetup-exported-function)
 * [The callback exported functions and structures](#the-callback-exported-functions-and-structures)
-    * [_plugin_registercallback](#_plugin_registercallback)
-    * [The registered event callback function for _plugin_registercallback](#the-registered-event-callback-function-for-_plugin_registercallback)
+    * [_plugin_registercallback](#-plugin-registercallback)
+    * [The registered event callback function for _plugin_registercallback](#the-registered-event-callback-function-for-plugin-registercallback)
     * [The CDECL export callback function](#the-cdecl-export-callback-function)
 * [Summary](#summary)
 * [Afterword](#afterword)
@@ -476,7 +476,7 @@ Registering a callback is done in one of two ways:
 * via the _plugin_registercallback function
 * Having an CDECL export of a specific callback function in your plugin
 
-## _plugin_registercallback
+## \_plugin\_registercallback
 
 This function registers an event callback for a plugin. The definition for this function (defined in the plugin SDK) is:
 
@@ -534,7 +534,7 @@ In assembler this is passed as a DWORD (for x86) or a QWORD (for x64) value.
 
 `cbPlugin` is the address of your exported callback function that will be registered. In assembler this callback functions address is passed as a DWORD (for x86) or a QWORD (for x64) value.
 
-## The registered event callback function for _plugin_registercallback
+## The registered event callback function for \_plugin\_registercallback
 
 The callback function `CBPLUGIN` must be an exported library function. `CBPLUGIN` is replaced with the name of your plugin's callback function. The definition for your `CBPLUGIN` function in your plugin looks like this:
 
