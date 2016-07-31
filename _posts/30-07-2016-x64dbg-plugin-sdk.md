@@ -345,6 +345,7 @@ pluginit ENDP
 The coding for each example is simple and again we see minimal changes for the 64bit assembler version vs the 32bit.
 
 In assembler (x86 and x64) you must also add your exported functions to a .def file for them to be visible to external callers when compiling and linking:
+
 ```nasm
 LIBRARY MyPlugin
 EXPORTS pluginit
