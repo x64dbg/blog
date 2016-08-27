@@ -17,7 +17,9 @@ title: Home
     {{ post.content }}
   </div>
 
-  {% unless paginator.previous_page %}
+  {% if paginator.previous_page %}
+  <p><a href="{{ site.baseurl }}{{ post.url }}#comments">Comments</a></p>
+  {% else %}
   <h2 id="comments">Comments</h2>
 
   <div id="disqus_thread"></div>
@@ -37,7 +39,7 @@ title: Home
       })();
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-  {% endunless %}
+  {% endif %}
   {% endfor %}
 
   {% for post in paginator.posts offset:1 %}
