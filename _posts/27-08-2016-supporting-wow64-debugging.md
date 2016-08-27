@@ -53,8 +53,7 @@ static arch GetFileArchitecture(const TCHAR* szFileName)
 }
 ```
 
-The call to `CreateFile` will invoke the FS Redirector and if the file requested is a system resource and is a 64-bit application with an equivalent 32-bit version, Windows will return the 32-bit version of that application. So debugging notepad.exe in `%windir\system32` will become debugging notepad.exe in ``%windir\SysWOW64` which is not what was intended.
-
+The call to `CreateFile` will invoke the FS Redirector and if the file requested is a system resource and is a 64-bit application with an equivalent 32-bit version, Windows will return the 32-bit version of that application. So debugging notepad.exe in `%windir\system32` will become debugging notepad.exe in `%windir\SysWOW64` which is not what was intended.
 
 ## The Fix
 
