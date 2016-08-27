@@ -5,13 +5,13 @@ title: Archive
 
 <div class="posts">
   {% for post in site.posts %}
-  <div class="post">
+  <div class="post" style="margin-bottom: 1em;">
     <h1 class="post-title">
       <a href="{{ site.baseurl }}{{ post.url }}">
         {{ post.title }}
       </a>
     </h1>
-    <span class="post-date">{{ post.date | date_to_string }}, by <a href="{{ post.website }}">{{ post.author}}</a>, <a href="{{ site.baseurl }}{{ post.url }}#comments">Comments</a></span>
+    <span class="post-date">{{ post.date | date_to_string }}, by <a href="{{ post.website }}">{{ post.author}}</a>, <a href="{{ site.baseurl }}{{ post.url }}#comments">comments</a></span>
   </div>
   {% endfor %}
 </div>
