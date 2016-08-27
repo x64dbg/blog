@@ -5,15 +5,18 @@ author: genuine
 website: https://github.com/blaquee
 ---
 
-## A small note on WoW64 Redirection on Windows ##
+## A small note on WoW64 Redirection on Windows
 
 With the introduction to a 64bit Windows Operating System Microsoft introduced the Wow64 emulator. This is a combination of DLLs (aptly named wow64xxx.dll) that automatically handle the proper loading of x86 versions ofsystem libraries for 32-bit processes on 64-bit Windows.
+
 In addition to this, in order to prevent file access and registry collisions WoW64 automatically handles redirecting file operations for 32-bit applications requesting access to system resources. Notice on a 64bit version of Windows, when a 32-bit application requests to open a System file located in ``` %wndir%\system32 ```, if that file is also located in the ``` %windir\SysWOW64 ``` Windows File System Redirection kicks in and provides that application with the 32bit version of the application. This is done due to a combination of factors including pre-defined Registry settings and environment variables setup by WoW64 during application start up. 
 
-## How this affected the x96dbg.exe loader ##
+## How this affected the x96dbg.exe loader
 
-In the x64dbg package, a loader is provided as a convenience to the user in order to support Right-Click Context Menu debugging of applications and Desktop shortcuts. However up until recent commits [1](https://github.com/x64dbg/x64dbg/commit/86b27c9eb8fd45e11717be796814c6fbce23d33f) and [2](https://github.com/x64dbg/x64dbg/commit/ab5f04f900d7d99cdc6a99310be876c4bf2a483d)  proper handling of redirection was not present. More information about this issue can be read here in Issue [#899](https://github.com/x64dbg/x64dbg/issues/89). Due to the fact that x96dbg.exe is a 32-bit application, when a Right Click context menu is invoked to debug a 64-bit application in the System directory, File System Redirection will automatically provide it with the 32-bit version of the application. 
-This redirection in fact affects the function ```c++ GetFileArchitecture() ```
+In the x64dbg package, a loader is provided as a convenience to the user in order to support Right-Click Context Menu debugging of applications and Desktop shortcuts. However up until recent commits [1](https://github.com/x64dbg/x64dbg/commit/86b27c9eb8fd45e11717be796814c6fbce23d33f) and [2](https://github.com/x64dbg/x64dbg/commit/ab5f04f900d7d99cdc6a99310be876c4bf2a483d)  proper handling of redirection was not present. More information about this issue can be read here in Issue [#899](https://github.com/x64dbg/x64dbg/issues/89). 
+
+Due to the fact that x96dbg.exe is a 32-bit application, when a Right Click context menu is invoked to debug a 64-bit application in the System directory, File System Redirection will automatically provide it with the 32-bit version of the application. 
+This redirection in fact affects the function ```c++ GetFileArchitecture() ``` :
 
 ```c++
 static arch GetFileArchitecture(const TCHAR* szFileName)
@@ -52,7 +55,7 @@ static arch GetFileArchitecture(const TCHAR* szFileName)
 The call to ```CreateFile``` will invoke the FS Redirector and if the file requested is a system resource and is a 64-bit application with an equivalent 32-bit version, Windows will return the 32-bit version of that application. So debugging notepad.exe in ``` %windir\system32 ``` will become debugging notepad.exe in ``` %windir\SysWOW64 ``` which is not what was intended.
 
 
-## The Fix ##
+## The Fix
 
 Luckily for us, Microsoft provides an easy way to bypass the default behavior of File System Redirection. The fix applied to the x96dbg.exe loader is one function that determines whether FS Redirection is supported, and a structure that facilitates disabling this and re-enabling it once done. 
 Two conditions need to be met before we can determine whether FS Redirection can be disabled:
@@ -104,7 +107,7 @@ Once we've determined that our conditions for FS redirection are met, we can dis
 
 With these changes, x96dbg.exe can now properly allow a user to Debug redirected 64-bit applications as intended.
 
-##References##
+###References
 
 More reading material on WoW64 can be found from the resources below:
 - [WoW64 Implementation Details](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384274(v=vs.85).aspx)
