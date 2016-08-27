@@ -11,8 +11,7 @@ title: Archive
         {{ post.title }}
       </a>
     </h1>
-    <span class="post-date">{{ post.date | date_to_string }}, by <a href="{{ post.website }}">{{ post.author}}</a></span>
+    <span class="post-date">{{ post.date | date_to_string }}, by <a href="{{ post.website }}">{{ post.author}}</a>, <a href="{{ site.baseurl }}{{ post.url }}#comments">Comments</a></span>
   </div>
-  <p><a href="{{ site.baseurl }}{{ post.url }}#comments">Comments</a></p>
   {% endfor %}
 </div>
