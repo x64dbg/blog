@@ -7,7 +7,7 @@ website: https://github.com/blaquee
 
 ## A small note on WoW64 Redirection on Windows
 
-With the introduction to a 64bit Windows Operating System Microsoft introduced the Wow64 emulator. This is a combination of DLLs (aptly named wow64xxx.dll) that automatically handle the proper loading of x86 versions ofsystem libraries for 32-bit processes on 64-bit Windows.
+With the introduction to a 64bit Windows Operating System Microsoft introduced the Wow64 emulator. This is a combination of DLLs (aptly named wow64xxx.dll) that automatically handle the proper loading of x86 versions of system libraries for 32-bit processes on 64-bit Windows.
 
 In addition to this, in order to prevent file access and registry collisions WoW64 automatically handles redirecting file operations for 32-bit applications requesting access to system resources. Notice on a 64bit version of Windows, when a 32-bit application requests to open a System file located in ``` %wndir%\system32 ```, if that file is also located in the ``` %windir\SysWOW64 ``` Windows File System Redirection kicks in and provides that application with the 32bit version of the application. This is done due to a combination of factors including pre-defined Registry settings and environment variables setup by WoW64 during application start up. 
 
