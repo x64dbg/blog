@@ -60,6 +60,8 @@ The call to ```CreateFile``` will invoke the FS Redirector and if the file reque
 Luckily for us, Microsoft provides an easy way to bypass the default behavior of File System Redirection. The fix applied to the x96dbg.exe loader is one function that determines whether FS Redirection is supported, and a structure that facilitates disabling this and re-enabling it once done. 
 Two conditions need to be met before we can determine whether FS Redirection can be disabled:
 1. Are we running under WoW64 context? (Meaning is this a 32bit application running under 64-bit Windows) and 
+
+
 2. Does this OS support File System Redirection?
 
 Checking for FS Redirection is a simple matter of seeing if the pertinent functions are available:
