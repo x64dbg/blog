@@ -16,7 +16,7 @@ This is the first of (hopefully) many weekly digests. Basically it will highligh
 
 ## Disable debuggee notes when debugging
 
-Previously it was possible to edit notes in the 'Debuggee' tab, even when you were not debugging something. These notes would be forever lost. 
+Previously it was possible to edit notes in the 'Debuggee' tab, even when you were not debugging anything. These notes would be forever lost so now you can no longer see that tab when not debugging. 
 
 ## Translation of the DBG
 
@@ -111,3 +111,5 @@ For reference, when tracing with TitanEngine, the events/s counter is around 250
 ## Final words
 
 That has been about it for this week. If you have any questions, contact us on Telegram/Gitter/IRC. If you want to see the changes in more detail, check the [commit log](https://github.com/x64dbg/x64dbg/commits).
+
+You can always get the latest release of x64dbg [here](http://releases.x64dbg.com).
