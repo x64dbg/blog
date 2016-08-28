@@ -9,7 +9,7 @@ website: https://github.com/blaquee
 
 With the introduction to a 64bit Windows Operating System Microsoft introduced the Wow64 emulator. This is a combination of DLLs (aptly named wow64xxx.dll) that automatically handle the proper loading of x86 versions of system libraries for 32-bit processes on 64-bit Windows.
 
-In addition to this, in order to prevent file access and registry collisions WoW64 automatically handles redirecting file operations for 32-bit applications requesting access to system resources. Notice on a 64bit version of Windows, when a 32-bit application requests to open a System file located in `%windir%\system32`, if that file is also located in the `%windir\SysWOW64` Windows File System Redirection kicks in and provides that application with the 32bit version of the application. This is done due to a combination of factors including pre-defined Registry settings and environment variables setup by WoW64 during application start up. 
+In addition to this, in order to prevent file access and registry collisions WoW64 automatically handles redirecting file operations for 32-bit applications requesting access to system resources. Notice on a 64bit version of Windows, when a 32-bit application requests to open a System file located in `%windir%\system32`, if that file is also located in the `%windir%\SysWOW64` Windows File System Redirection kicks in and provides that application with the 32bit version of the application. This is done due to a combination of factors including pre-defined Registry settings and environment variables setup by WoW64 during application start up. 
 
 ## How this affected the x96dbg.exe loader
 
@@ -53,7 +53,7 @@ static arch GetFileArchitecture(const TCHAR* szFileName)
 }
 ```
 
-The call to `CreateFile` will invoke the FS Redirector and if the file requested is a system resource and is a 64-bit application with an equivalent 32-bit version, Windows will return the 32-bit version of that application. So debugging notepad.exe in `%windir\system32` will become debugging notepad.exe in `%windir\SysWOW64` which is not what was intended.
+The call to `CreateFile` will invoke the FS Redirector and if the file requested is a system resource and is a 64-bit application with an equivalent 32-bit version, Windows will return the 32-bit version of that application. So debugging notepad.exe in `%windir%\system32` will become debugging notepad.exe in `%windir%\SysWOW64` which is not what was intended.
 
 ## The Fix
 
