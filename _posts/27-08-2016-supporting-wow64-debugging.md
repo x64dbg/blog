@@ -11,11 +11,11 @@ With the introduction to a 64bit Windows Operating System Microsoft introduced t
 
 In addition to this, in order to prevent file access and registry collisions WoW64 automatically handles redirecting file operations for 32-bit applications requesting access to system resources. Notice on a 64bit version of Windows, when a 32-bit application requests to open a System file located in `%windir%\system32`, if that file is also located in the `%windir%\SysWOW64` Windows File System Redirection kicks in and provides that application with the 32bit version of the application. This is done due to a combination of factors including pre-defined Registry settings and environment variables setup by WoW64 during application start up. 
 
-## How this affected the x96dbg.exe loader
+## How this affected the x86dbg.exe loader
 
 In the x64dbg package, a loader is provided as a convenience to the user in order to support Right-Click Context Menu debugging of applications and Desktop shortcuts. However up until recent commits [1](https://github.com/x64dbg/x64dbg/commit/86b27c9eb8fd45e11717be796814c6fbce23d33f) and [2](https://github.com/x64dbg/x64dbg/commit/ab5f04f900d7d99cdc6a99310be876c4bf2a483d)  proper handling of redirection was not present. More information about this issue can be read here in Issue [#899](https://github.com/x64dbg/x64dbg/issues/89). 
 
-Due to the fact that x96dbg.exe is a 32-bit application, when a Right Click context menu is invoked to debug a 64-bit application in the System directory, File System Redirection will automatically provide it with the 32-bit version of the application. 
+Due to the fact that x86dbg.exe is a 32-bit application, when a Right Click context menu is invoked to debug a 64-bit application in the System directory, File System Redirection will automatically provide it with the 32-bit version of the application. 
 This redirection in fact affects the function `GetFileArchitecture()`:
 
 ```c++
@@ -57,7 +57,7 @@ The call to `CreateFile` will invoke the FS Redirector and if the file requested
 
 ## The Fix
 
-Luckily for us, Microsoft provides an easy way to bypass the default behavior of File System Redirection. The fix applied to the x96dbg.exe loader is one function that determines whether FS Redirection is supported, and a structure that facilitates disabling this and re-enabling it once done. 
+Luckily for us, Microsoft provides an easy way to bypass the default behavior of File System Redirection. The fix applied to the x86dbg.exe loader is one function that determines whether FS Redirection is supported, and a structure that facilitates disabling this and re-enabling it once done. 
 Two conditions need to be met before we can determine whether FS Redirection can be disabled:
 
 1. Are we running under WoW64 context? (Meaning is this a 32bit application running under 64-bit Windows) and 
@@ -110,7 +110,7 @@ struct RedirectWow
 
 Once we've determined that our conditions for FS redirection are met, we can disable it using a simple call to the member function `DisableRedirect()`. This must be invoked before we attempt to determine the files architecture and this can be seen here at [Line #412](https://github.com/x64dbg/x64dbg/blob/ab5f04f900d7d99cdc6a99310be876c4bf2a483d/src/launcher/x64_dbg_launcher.cpp#L412)
 
-With these changes, x96dbg.exe can now properly allow a user to Debug redirected 64-bit applications as intended.
+With these changes, x86dbg.exe can now properly allow a user to Debug redirected 64-bit applications as intended.
 
 ## References
 
