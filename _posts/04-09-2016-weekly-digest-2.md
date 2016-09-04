@@ -72,7 +72,7 @@ The oldest unresolved issue [#22](https://github.com/x64dbg/x64dbg/issues/22) ha
 
 ## Expression functions
 
-The (currently) undocumented feature of expression functions has been extended with various new functions, see [expressionfunctions.cpp](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/expressionfunctions.cpp#L41) if you want to know more.
+The [expression functions](http://help.x64dbg.com/en/latest/introduction/Expression-functions.html) have been extended with various new functions, see [expressionfunctions.cpp](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/expressionfunctions.cpp#L41) if you want to know more.
 
 Hint: you can simulate branch tracing with the command `TraceIntoConditional dis.isbranch(cip) || dis.isret(cip)`
 
@@ -92,7 +92,7 @@ Many people are probably unaware of the x64dbg [wiki](http://wiki.x64dbg.com). I
 
 ![color scheme](https://i.imgur.com/1Jf38zh.png)
 
-Also, Storm Shadow updated some of his [stylesheets](https://github.com/x64dbg/x64dbg/wiki/Stylesheets), check it out!
+Also, Storm Shadow from [Techbliss](http://techbliss.org) updated some of his [stylesheets](https://github.com/x64dbg/x64dbg/wiki/Stylesheets), check it out!
 
 ![stylesheet](https://cloud.githubusercontent.com/assets/3592375/15633822/abd605c8-25b6-11e6-97af-d3202cc3f90c.png)
 
