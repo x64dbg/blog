@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Weekly digest 2
-author: x64dbg
-website: http://x64dbg.com
+author: mrexodia
+website: http://mrexodia.cf
 
 ---
 
