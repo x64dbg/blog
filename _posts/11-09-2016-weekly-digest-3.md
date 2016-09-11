@@ -85,11 +85,11 @@ jmp loop
 
 ## Fixed string sorting in table views
 
-The fix from issue [#985](https://github.com/x64dbg/issues/985) has been implemented and sorting is now consistent even with equal strings.
+The fix from issue [#985](https://github.com/x64dbg/x64dbg/issues/985) has been implemented and sorting is now consistent even with equal strings.
 
 ## Fixed FS/GS memory branch destinations
 
-Issue [#929](https://github.com/x64dbg/issues/929) has been fixed, you can now properly follow the WOW64 redirections in x32dbg.
+Issue [#929](https://github.com/x64dbg/x64dbg/issues/929) has been fixed, you can now properly follow the WOW64 redirections in x32dbg.
 
 ## Option to ignore inconsistent breakpoints
 
