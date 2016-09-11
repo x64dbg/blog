@@ -69,6 +69,10 @@ In issue [#775](https://github.com/x64dbg/x64dbg/issues/775), [mrfearless](https
 
 ## Added the asmjit assembler engine
 
+A new assembler engine has been added to x64dbg. You can find it on [Github](https://github.com/asmjit). Big thanks to the author [kobalicek](https://github.com/kobalicek) for the support while trying to get it work!
+
+![asmjit](https://i.imgur.com/3dypW24.png)
+
 ## Fixed a deadlock on aborting a script
 
 If you ran the following simple script it would spin out of control and eventually hang when attempting to abort the script:
