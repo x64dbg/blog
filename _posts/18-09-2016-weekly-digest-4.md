@@ -54,6 +54,10 @@ A Visual Studio template for regular plugins is on the way.
 
 There has been a Python scripting plugin available for quite some time ([x64dbgpy](https://github.com/x64dbg/x64dbgpy)), now there is a very simple [UpxUnpacker.py](https://github.com/x64dbg/Scripts/blob/master/UpxUnpacker.py) available. We are in need of contributers for x64dbgpy, so please come in contact if you want more powerful Python scripting in x64dbg.
 
+## University
+
+For me the university started again, which means I will have less time to work on x64dbg. Probably I will have more time to work on x64dbg during the Christmas break again. If you have an hour of free time, please try to solve a few [easy issues](http://easy.x64dbg.com)!
+
 ## Final words
 
 That has been about it for this week again. If you have any questions, contact us on [Telegram](http://telegram.x64dbg.com), [Gitter](http://gitter.x64dbg.com) or [IRC](http://webchat.freenode.net/?channels=x64dbg). If you want to see the changes in more detail, check the [commit log](https://github.com/x64dbg/x64dbg/commits).
