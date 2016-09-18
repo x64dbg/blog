@@ -54,6 +54,12 @@ A Visual Studio template for regular plugins is on the way.
 
 There has been a Python scripting plugin available for quite some time ([x64dbgpy](https://github.com/x64dbg/x64dbgpy)), now there is a very simple [UpxUnpacker.py](https://github.com/x64dbg/Scripts/blob/master/UpxUnpacker.py) available. We are in need of contributers for x64dbgpy, so please come in contact if you want more powerful Python scripting in x64dbg.
 
+## Register view enhancements
+
+In pull request [#1098](https://github.com/x64dbg/x64dbg/pull/1098) torusrxxx added various enhancements to the registers view. The configured endianness is now respected in the edit dialog and there are tooltips for various uncommon registers and flags:
+
+![registers enhancement](https://i.imgur.com/7XMb2O5.png)
+
 ## University
 
 For me the university started again, which means I will have less time to work on x64dbg. Probably I will have more time to work on x64dbg during the Christmas break again. If you have an hour of free time, please try to solve a few [easy issues](http://easy.x64dbg.com)!
