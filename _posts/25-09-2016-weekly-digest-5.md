@@ -153,6 +153,10 @@ Last week I mentioned there will be a plugin template. This has now been realize
 
 The command [GetRelocSize](http://help.x64dbg.com/en/latest/commands/misc/grs.html) from the [testplugin](https://github.com/x64dbg/testplugin) has been added to x64dbg. This command is useful when trying to find the size of a relocation table from memory while unpacking.
 
+## MxCsr
+
+There were a few bugs with setting floating point status registers (such as `MxCsr`), these have been fixed. See issue [#1102](https://github.com/x64dbg/x64dbg/issues/1102) for more details.
+
 ## Final words
 
 That has been about it for this week again. If you have any questions, contact us on [Telegram](http://telegram.x64dbg.com), [Gitter](http://gitter.x64dbg.com) or [IRC](http://webchat.freenode.net/?channels=x64dbg). If you want to see the changes in more detail, check the [commit log](https://github.com/x64dbg/x64dbg/commits).
