@@ -16,7 +16,7 @@ The command completion dialog and the command edit now use the same font as the 
 
 ## Added memdump option to savedata
 
-The [savedata](http://x64dbg.readthedocs.io/en/latest/commands/data/savedata.html) command now allows you to use `:memdump:` as a filename to create a file `memdump_pid_addr_size.bin` in the x64dbg directory. This is useful for scripting purposes.
+The [savedata](http://x64dbg.readthedocs.io/en/latest/commands/memory-operations/savedata.html) command now allows you to use `:memdump:` as a filename to create a file `memdump_pid_addr_size.bin` in the x64dbg directory. This is useful for scripting purposes.
 
 ## Fixed various general purpose instructions
 
@@ -58,7 +58,7 @@ A global or per-debuggee script can now be executed on initialization. See pull 
 
 ## Create a thread in the debuggee
 
-The [createthread](http://x64dbg.readthedocs.io/en/latest/commands/debug-control/createthread.html) command has been added and you can also right click a location in the disassembly and directly spawn a new thread from that location. See pull request [#1028](https://github.com/x64dbg/x64dbg/pull/1028).
+The [createthread](http://x64dbg.readthedocs.io/en/latest/commands/thread-control/createthread.html) command has been added and you can also right click a location in the disassembly and directly spawn a new thread from that location. See pull request [#1028](https://github.com/x64dbg/x64dbg/pull/1028).
 
 ## Performance improvements in TitanEngine
 
@@ -80,7 +80,7 @@ Expect a blog post on this somewhere this month.
 
 ## Allow modification of the singleshoot flag
 
-Previously it was impossible to change a singleshoot breakpoint to a persistent one, this has now been implemented in the breakpoint editor and the [SetBreakpointSingleshoot](http://x64dbg.readthedocs.io/en/latest/commands/breakpoints-conditional/SetBreakpointSingleshoot.html) command.
+Previously it was impossible to change a singleshoot breakpoint to a persistent one, this has now been implemented in the breakpoint editor and the [SetBreakpointSingleshoot](http://x64dbg.readthedocs.io/en/latest/commands/conditional-breakpoint-control/SetBreakpointSingleshoot.html) command.
 
 ## Added NTSTATUS codes
 

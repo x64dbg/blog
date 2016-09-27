@@ -44,7 +44,7 @@ The functions `mem.base`, `mem.size`, `mem.iscode`, and `mem.decodepointer` have
 
 ## Script DLL template for Visual Studio
 
-The [scriptdll](http://x64dbg.readthedocs.io/en/latest/commands/misc/scriptdll.html) command has been documented and there is an example [UpxUnpacker](https://github.com/x64dbg/Scripts/blob/master/UpxUnpacker.cpp) available, but the barrier of entry was still too high. [ScriptDllTemplate](https://github.com/x64dbg/ScriptDllTemplate) is a template project for Visual Studio so you don't have to worry about setting up and you can start natively scripting x64dbg.
+The [scriptdll](http://x64dbg.readthedocs.io/en/latest/commands/script/scriptdll.html) command has been documented and there is an example [UpxUnpacker](https://github.com/x64dbg/Scripts/blob/master/UpxUnpacker.cpp) available, but the barrier of entry was still too high. [ScriptDllTemplate](https://github.com/x64dbg/ScriptDllTemplate) is a template project for Visual Studio so you don't have to worry about setting up and you can start natively scripting x64dbg.
 
 ![Script DLL Template](https://i.imgur.com/y216Nr2.png)
 

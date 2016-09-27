@@ -60,7 +60,7 @@ You can now query selection from the disassembly, dump, stack, graph, memory map
 
 ## Improved dbload command
 
-The command [dbload](http://x64dbg.readthedocs.io/en/latest/commands/user-database/loaddb.html) would not unload the data first if you deleted the current program database. A command [dbclear](http://x64dbg.readthedocs.io/en/latest/commands/user-database/cleardb.html) has also been added.
+The command [dbload](http://x64dbg.readthedocs.io/en/latest/commands/user-database/dbload.html) would not unload the data first if you deleted the current program database. A command [dbclear](http://x64dbg.readthedocs.io/en/latest/commands/user-database/dbclear.html) has also been added.
 
 ## Expression functions for reading data
 
