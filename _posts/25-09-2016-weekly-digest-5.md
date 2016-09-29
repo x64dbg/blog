@@ -22,7 +22,7 @@ Another nice contribution from [blaquee](https://github.com/blaquee). The comman
 
 ## Improvements to the info box
 
-A friendly gentle(wo)man requested ([#1094](https://github.com/x64dbg/x64dbg/issues/1094)) a change to the info box. Basically the pointer values in the instruction were not resolved (so if the instruction contained `qword ptr ds:[rsp+30]` it would not show the value of `rsp+30`). Personally this is quite useless since you can easily follow addresses wherever you want but it has been added regardless. It now shows both the context and the resolved address:
+A friendly gentle(wo)man requested ([#1094](https://github.com/x64dbg/x64dbg/issues/1094)) a change to the info box. Basically the pointer values in the instruction were not resolved (so if the instruction contained `qword ptr ds:[rsp+30]` it would not show the value of `rsp+30`). Personally I think this is quite useless since you can easily follow addresses wherever you want but it has been added regardless. It now shows both the context and the resolved address:
 
 ![infobox pointer](https://i.imgur.com/BB1WoyS.png)
 
