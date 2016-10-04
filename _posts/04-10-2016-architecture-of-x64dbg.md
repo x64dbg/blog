@@ -57,7 +57,7 @@ To start debugging, the GUI sends an [init](http://help.x64dbg.com/en/latest/com
 
 ## Message passing from GUI to DBG
 
-There are 3 methods to call DBG from GUI. They are commands, directly exported functions, bridge exported functions (messages) and DbgFunctions(). Currently the directly exported functions are frozen and no new ones should be added. The message flows for each way will be described below.
+There are four methods to call DBG from GUI. They are commands, directly exported functions, bridge exported functions (messages) and DbgFunctions(). Currently the directly exported functions are frozen and no new ones should be added. The message flows for each way will be described below.
 
 ### Commands dispatch
 
