@@ -8,6 +8,8 @@ website: https://github.com/torusrxxx
 
 x64dbg has a complex architecture. There are three basic parts, namely [DBG](https://github.com/x64dbg/x64dbg/tree/7eecb558a02defe2739623117995ab78dc5c3c67/src/dbg), [BRIDGE](https://github.com/x64dbg/x64dbg/tree/7eecb558a02defe2739623117995ab78dc5c3c67/src/bridge) and [GUI](https://github.com/x64dbg/x64dbg/tree/7eecb558a02defe2739623117995ab78dc5c3c67/src/gui), but in fact there is a fourth part, [EXE](https://github.com/x64dbg/x64dbg/tree/7eecb558a02defe2739623117995ab78dc5c3c67/src/exe). This is the main executable, it compiles into `x64dbg.exe`.
 
+![architecture diagram](https://i.imgur.com/DatgCBa.png)
+
 ## Bootstrapping
 
 When the user starts x64dbg, it will follow this initialization path to get x64dbg running:
