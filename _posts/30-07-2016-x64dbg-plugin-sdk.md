@@ -5,7 +5,7 @@ author: fearless
 website: http://www.LetTheLight.in
 ---
 
-# Contents
+## Contents
 
 * [Overview](#overview)
 * [Common questions](#common-questions)
@@ -27,7 +27,7 @@ website: http://www.LetTheLight.in
 * [Afterword](#afterword)
 * [Additional resources of interest](#additional-resources-of-interest)
 
-# Overview
+## Overview
 
 The x64dbg plugin software development kit (SDK) is used to create plugins for the x64dbg debugger. This article aims to do a number of things:
 
@@ -39,29 +39,29 @@ The x64dbg plugin software development kit (SDK) is used to create plugins for t
 
 Please note that there is a lot of code listings in this article, which may make for rather dry reading, and more like a technical manual overall.
 
-# Common questions
+## Common questions
 
 A number of questions might arise straight away, so lets answer them before we continue.
 
-## Wait, what? there are two plugin SDKs?
+### Wait, what? there are two plugin SDKs?
 
 Yes, the integrated one is already provided for by x64dbg, and comes included with the latest snapshots. The second one was created by myself, converting the existing plugin SDK to an assembler friendly one for use with Masm32 (x86) or JWasm / HJWasm (x64)
 
-## Which plugin SDK should I use?
+### Which plugin SDK should I use?
 
 Whichever you feel more comfortable with. If you prefer to code in C or C++ then the integrated plugin SDK is probably more suited to you.
 
-## Why create a plugin SDK in assembler?
+### Why create a plugin SDK in assembler?
 
 In practice it comes down to what language you are most familiar coding with, and in my case it happens to be assembler, and by providing an SDK for assembler, it opens up the door to the possibility of other assembly coders using it. And another obvious answer would be to do with the nature of the product, which being a debugger shows its output (the disassembly) in raw assembly language - what better environment for assembly coders to learn and further their own development?
 
-## What assembler should I use, if I'm to use the plugin SDK for assembler?
+### What assembler should I use, if I'm to use the plugin SDK for assembler?
 
 As the plugin SDK for x86 was written using Masm32, for x86 plugin development I recommend you use the [MASM32 SDK]((http://www.masm32.com/masmdl.htm)) along with the [x64dbg Plugin SDK For x86 Assembler](https://github.com/mrfearless/x64dbg-Plugin-SDK-For-x86-Assembler). The plugin SDK for x64 was written using JWasm (64bit) and for x64 plugin development both [JWasm](http://masm32.com/board/index.php?topic=3795.0) (the last/latest release) and [HJWasm](http://www.terraspace.co.uk/hjwasm.html#p2) (fork and continuation of JWasm) can be used along with [x64dbg Plugin SDK For x64 Assembler](https://github.com/mrfearless/x64dbg-Plugin-SDK-For-x64-Assembler). 
 
 JWasm / HJWasm are considered masm compatible, so they could also be used for the x86 development if you so wish. Other assemblers can be used, but you might have to make a few changes here and there with the examples shown in this post.
 
-## Why write a plugin?
+### Why write a plugin?
 
 * To add additional new features not originally provided for by the original software product.
 * To enhance or complement existing features or functionality: convenience, ease of use, eliminate repetitive tasks.
@@ -71,11 +71,11 @@ JWasm / HJWasm are considered masm compatible, so they could also be used for th
 
 Those answers are more general and apply to plugin development in general, but with open source projects which can be more fluid in their development, there are other considerations and caveats.
 
-### Ongoing development
+#### Ongoing development
 
 Fixing issues (bug fixes) and enhancing functionality are an ongoing part of open source projects. So the additions of new features (via feature requests) is not uncommon. Also features or functionality that a plugin provide can become obsolete when the feature they provide is directly including in the open source project.
 
-### Feature request alignment
+#### Feature request alignment
 
 Sometimes features requests and the overall direction and goal of the open source project may not align - even if they are directly or indirectly related to the overall project - sometimes it is more expedient for the feature requests to be moved out to a plugin. 
 
@@ -83,7 +83,7 @@ Other times, features that where planned for inclusion in the open source projec
 
 Certain features may only used by a small amount of users, and again it is more efficient to outsource the feature to a plugin for the small amount of users who make use of the functionality.
 
-# Understanding the x64dbg plugin architecture
+## Understanding the x64dbg plugin architecture
 
 The plugin files for x64dbg, are files that end with the `.dp32` or `.dp64` extension. These correspond to the processor architecture used in each version of x64dbg - 32bit and 64bit. In reality these plugin files (`.dp32` for 32bit x32dbg and `.dp64` for 64bit x64dbg) are just simple dynamic link libraries (`.dll` files).
 
@@ -100,7 +100,7 @@ and optionally:
 
 Technically only `DllMain` and `pluginit` are required at a minimum, but it is considered a good practise to include `plugstop` to allow for cleanup of your plugins code, should it be required, and `plugsetup` for obtaining menu handles if your plugin will be creating its own menu items.
 
-# The plugin load sequence
+## The plugin load sequence
 
 These are the steps that occur when plugins are being loaded by the x64dbg debugger. The functions and structures mentioned are covered in more detail in other sections below.
 
@@ -120,7 +120,7 @@ In a loop of all matching files the following takes place:
 
 Understanding the plugin loading sequence will hopefully help you understand where best to place your code for your plugin and the obvious impact of having cpu intensive code in the initialization and setup functions. Other plugins will be delayed in loading and the x64dbg debugger itself will be waiting for your code to finish before it can continue on to do its main job of debugging.
 
-# DllMain
+## DllMain
 
 `DllMain` is the entry point into a dynamic link library, and is optional for each dll file to have one. The plugins, being dll files, can make use of this function by storing the `HINSTANCE` `hInst` value for later use in other api calls. The code required for creating a DllMain function is relatively straightforward.
 
@@ -171,7 +171,7 @@ Apart from `DllMain` all the plugin functions (except from your own internal fun
 
 An exported function is one that has been declared as accessible externally for other external callers to make use of. `DllMain` is 'seen' and automatically handled by the operating system when loading a dynamic link library, so we aren't required to explicitly export it, but the `pluginit`, `plugstop`, `plugsetup` and any other `CB*` callback functions are required to be exported.
 
-# The pluginit exported function
+## The pluginit exported function
 
 `pluginit` is the first exported function that x64dbg calls after loading the dynamic link libraries (`.dp32` or `.dp64`), if `pluginit` isn't present then the loading of the plugin will fail at this point. 
 
@@ -353,7 +353,7 @@ EXPORTS pluginit
         plugsetup
 ```
 
-# The plugsetup exported function
+## The plugsetup exported function
 
 `plugsetup` is the second export function that x64dbg calls - assuming the first call to `pluginit` was successful and the information passed back was correct.
 
@@ -466,7 +466,7 @@ EXPORTS pluginit
         plugsetup
 ```
 
-# The callback exported functions and structures
+## The callback exported functions and structures
 
 The callback functions are provided to help you use your plugin. When a specific event occurs in the x64dbg debugger, it passes this event call to each plugin that has 'registered' to receive this event. Typically events that would be of interest to a plugin developer are when debugging of a target process has begun (CB_INITDEBUG), or when a breakpoint has been reached (CB_BREAKPOINT or CB_SYSTEMBREAKPOINT) or other events of interest, like handling a menu interaction for your plugin (CB_MENUENTRY). 
 
@@ -477,7 +477,7 @@ Registering a callback is done in one of two ways:
 * via the _plugin_registercallback function
 * Having an CDECL export of a specific callback function in your plugin
 
-## \_plugin\_registercallback
+### \_plugin\_registercallback
 
 This function registers an event callback for a plugin. The definition for this function (defined in the plugin SDK) is:
 
@@ -535,7 +535,7 @@ In assembler this is passed as a DWORD (for x86) or a QWORD (for x64) value.
 
 `cbPlugin` is the address of your exported callback function that will be registered. In assembler this callback functions address is passed as a DWORD (for x86) or a QWORD (for x64) value.
 
-## The registered event callback function for \_plugin\_registercallback
+### The registered event callback function for \_plugin\_registercallback
 
 The callback function `CBPLUGIN` must be an exported library function. `CBPLUGIN` is replaced with the name of your plugin's callback function. The definition for your `CBPLUGIN` function in your plugin looks like this:
 
@@ -590,7 +590,7 @@ The `callbackInfo` parameter contains a pointer to a specific PLUG_CB_\* structu
     
 We will cover more in depth usage of the specific callback structures later on.
 
-## The CDECL export callback function
+### The CDECL export callback function
 
 The second way of using callbacks, which may be easier to implement, is to have specifically named functions exported from your plugin. x64dbg will look for these exported functions when loading your plugin and if found will automatically register these as callback events. The exported functions that will be recognised are:
 
@@ -733,7 +733,7 @@ EXPORTS pluginit
 
 In all the examples above, the CBINITDEBUG function is registered as our callback and called when debugging begins. The callbackInfo parameter contains the pointer to a PLUG_CB_INITDEBUG, from which we can retrieve the name of the file that is about to be debugged. We could display this information in the log window or do something else instead.
 
-# Summary
+## Summary
 
 Hopefully if you have read all this article it has covered the following:
 
@@ -745,7 +745,7 @@ Hopefully if you have read all this article it has covered the following:
 * Plugin SDK structures used with `pluginit` and `plugsetup`, namely `PLUG_INITSTRUCT` and `PLUG_SETUPSTRUCT`.
 * `CB*` callback functions and the two ways in which to register them with your plugin: `_plugin_registercallback` or by exporting specific function names.
 
-# Afterword
+## Afterword
 
 Lots of code listing and technical information, which might not necessarily be to everyone's taste, but hopefully in a future article I will cover a specific working plugin example and walk through the development of it - most likely in assembler x86.
 
@@ -755,25 +755,25 @@ Thank you for taking the time to read this article.
 
 fearless
 
-# Additional resources of interest
+## Additional resources of interest
 
-## x64dbg
+### x64dbg
 
 * [x64dbg Website](http://x64dbg.com)
 * [x64dbg Github](https://github.com/x64dbg/x64dbg)
 * [x64dbg Latest Release](http://releases.x64dbg.com)
 
-## x64dbg Plugin SDK For Assembler
+### x64dbg Plugin SDK For Assembler
 
 * [x64dbg Plugin SDK For x86 Assembler](https://github.com/mrfearless/x64dbg-Plugin-SDK-For-x86-Assembler)
 * [x64dbg Plugin SDK For x64 Assembler](https://github.com/mrfearless/x64dbg-Plugin-SDK-For-x64-Assembler)
 
-## Assemblers
+### Assemblers
 
 * [Masm32 Assembler](http://www.masm32.com/masmdl.htm)
 * [HJWasm Assembler](https://github.com/Terraspace/HJWasm)
 
-## Other
+### Other
 
 * [x64dbg plugin template for Visual Studio](https://github.com/mrfearless/x64dbg-plugin-template-for-Visual-Studio)
 * [fearless](https://github.com/mrfearless)
