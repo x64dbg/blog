@@ -8,6 +8,10 @@ website: http://mrexodia.cf
 
 This is the seventh of (hopefully) many weekly digests. Basically it will highlight the things that happened to x64dbg and related projects during the week before.
 
+## Plugin page
+
+There is now a [wiki page](http://plugins.x64dbg.com) available dedicated to x64dbg plugins. It contains various templates and also a list of plugins. If you wrote a plugin yourself, feel free to add it to the list!
+
 ## Variable list will now be shown in the reference view
 
 The command [varlist](http://x64dbg.readthedocs.io/en/latest/commands/variables/varlist.html) will now show the available variables in the reference view instead of in the log.
@@ -52,7 +56,7 @@ The branch lines in the sidebar are now highlighted when selecting the branch de
 
 ![highlight destination](https://i.imgur.com/d5IH0vi.png)
 
-## Various updates to the mnemdb
+## Various updates to the mnemonic database
 
 If you are looking for a quick description of every instruction you can use the 'Show mnemonic brief' (Ctrl+Alt+F1) option to get a brief description of every opcode. The [mnemonic database](https://github.com/x64dbg/idaref) used for this has been slightly updated and should give better results in some cases.  
 
