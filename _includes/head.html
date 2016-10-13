@@ -43,4 +43,14 @@
     ga('require', 'displayfeatures');
     ga('send', 'pageview');
   </script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.2/anchor.min.js"></script>
+
+  <script>
+    (function () {
+      'use strict';
+      anchors.options.placement = 'left';
+      anchors.add('.post > h2, .post > h3, .post > h4, .post > h5, .post > h6');
+    })();
+  </script>
 </head>
