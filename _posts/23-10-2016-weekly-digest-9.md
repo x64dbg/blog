@@ -120,7 +120,13 @@ Issue [#1096](https://github.com/x64dbg/x64dbg/issues/1096) has been fixed in pu
 
 ## Disassembly speed improvements
 
-There has been quite a big improvement in disassembly and overall GUI speed. The disassembly would reload itself three times, effectively disassembling every visible instruction six times. This has now been reduced to disassembling once. Additionally the GUI would be force-refreshed unnecessarily which should now also be fixed. If you encounter any issues with this, please report an [issue](http://issues.x64dbg.com). Scrolling in the current view will always force-refresh it. 
+There has been quite a big improvement in disassembly and overall GUI speed. The disassembly would reload itself three times, effectively disassembling every visible instruction six times. This has now been reduced to disassembling once. Additionally the GUI would be force-refreshed unnecessarily which should now also be fixed. If you encounter any issues with this, please report an [issue](http://issues.x64dbg.com). Scrolling in the current view will always force-refresh it.
+
+### Reports
+
+- Issue [#1188](https://github.com/x64dbg/x64dbg/issues/1188) by [cxj98](https://github.com/cxj98) fixed in 15 minutes;
+- Private report, already fixed;
+- Found another bug myself and double-verified it *should* be fully fixed now sorry for the hassle!
 
 ## Copy symbolic name
 
