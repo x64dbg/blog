@@ -62,6 +62,8 @@ Lots of (almost all) context menu items now have icons for a more fun and colorf
 
 ## Updated capstone, keystone and asmjit
 
+The dependencies [capstone](http://www.capstone-engine.org), [keystone](http://www.keystone-engine.org) and [asmjit](https://github.com/x64dbg/asmjit_xedparse) have been updated. This fixed various bugs with assembling and disassembling.
+
 ## Copy as base64
 
 The data copy dialog now allows you to copy data as Base64. Quite useful if you need to dump some private keys or something. It also supports various other formats, including C-style array (various types), string, GUID, IP addresses and Delphi arrays.
