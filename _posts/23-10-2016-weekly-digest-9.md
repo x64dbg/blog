@@ -106,7 +106,7 @@ PLUG_EXPORT void CBANALYZE(CBTYPE cbType, PLUG_CB_ANALYZE* info)
 
 Trolls aside, this can be extremely powerful if applied in the right manner. For example deobfuscate VMProtect handlers on the fly...
 
-![vmprotect surgery](https://i.imgur.com/V5PeOBW.png)
+![vmprotect surgery](https://i.imgur.com/IC7YW4c.png)
 
 ## Maximum trace count option
 
