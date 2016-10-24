@@ -127,6 +127,7 @@ There has been quite a big improvement in disassembly and overall GUI speed. The
 - Issue [#1188](https://github.com/x64dbg/x64dbg/issues/1188) by [cxj98](https://github.com/cxj98) fixed in 15 minutes;
 - Private report, already fixed;
 - Found another bug myself and double-verified it *should* be fully fixed now sorry for the hassle!
+- Yet another report, also fixed;
 
 ## Copy symbolic name
 
