@@ -1,4 +1,4 @@
-x6---
+---
 layout: post
 title: The x64dbg threading model
 author: mrexodia
