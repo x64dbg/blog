@@ -1,4 +1,4 @@
----
+x6---
 layout: post
 title: The x64dbg threading model
 author: mrexodia
@@ -61,7 +61,7 @@ Some challenging areas are properly signaling the termination of the debuggee. I
 
 ## Script thread
 
-When dealing with scripting, you usually want to simulate user interaction. This means that the expectation is that the following [x64dbgpy](https://github.com/x64dbg/x64dbgpy) script should be equivalent to:
+When dealing with scripting, you usually want to simulate user interaction. This means that the expectation is that the following [x64dbgpy](https://github.com/x64dbg/x64dbgpy) (Python) script should be equivalent to:
 
 - Setting a breakpoint on `__security_init_cookie`
 - Pressing the run button
