@@ -6,7 +6,7 @@ website: http://mrexodia.cf
 
 ---
 
-This is already number nine of the weekly digests! It will highlight the things that happened to and around x64dbg this week.
+This is already number ten of the weekly digests! It will highlight the things that happened to and around x64dbg this week.
 
 ## InterObfu
 
