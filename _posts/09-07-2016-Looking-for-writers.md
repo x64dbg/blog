@@ -32,7 +32,7 @@ website: http://johndoe.me
 ---
 ```
 
-After that write your post contents with Markdown. If you don't want to be attributed use `Anonymous` and `http://x64dbg.com` for the `author` and `website` fields respectively. These fields are **required** for your post to be accepted, so keep that in mind.
+After that write your post contents with Markdown. If you don't want to be attributed use `Anonymous` and `http://x64dbg.com` for the `author` and `website` fields respectively. These fields are **required** for your post to be accepted, so keep that in mind. Also, feel free to add an introductory section explaining who you are, what you do and links to your personal blog or company website!
 
 Once you completed writing your post, send a pull request and it will be reviewed and added to the blog!
 
