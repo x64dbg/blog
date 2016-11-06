@@ -83,6 +83,20 @@ A user on Telegram requested an option to expand the highlighting of the mnemoni
 
 General purpose registers had an option to 'Toggle' their state, but this did nothing particularly useful. This option has now been removed.
 
+## Translations
+
+Some time ago a [translation](http://translate.x64dbg.com) was opened at [Crowdin](https://crowdin.com). There has been great progress and here are some of the top languages. Thanks to all the translators!
+
+- Spanish (95%)
+- German (86%)
+- Chinese Simplified (80%)
+- Korean (64%)
+- Russian (59%)
+- Polish (47%)
+- Fresh (32%)
+
+If you have some time it would be appreciated if you could translate a few sentences in your language!
+
 ## Final words
 
 That has been about it for this week again. If you have any questions, contact us on [Telegram](http://telegram.x64dbg.com), [Gitter](http://gitter.x64dbg.com) or [IRC](http://webchat.freenode.net/?channels=x64dbg). If you want to see the changes in more detail, check the [commit log](https://github.com/x64dbg/x64dbg/commits).
