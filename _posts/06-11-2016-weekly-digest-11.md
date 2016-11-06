@@ -93,7 +93,7 @@ Some time ago a [translation](http://translate.x64dbg.com) was opened at [Crowdi
 - Korean (64%)
 - Russian (59%)
 - Polish (47%)
-- Fresh (32%)
+- French (32%)
 
 If you have some time it would be appreciated if you could translate a few sentences in your language!
 
