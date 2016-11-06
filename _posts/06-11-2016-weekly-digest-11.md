@@ -16,7 +16,7 @@ Just like [conditional breakpoints](http://help.x64dbg.com/en/latest/introductio
 
 ## Fixed more GUI update issues
 
-Sadly the recent [performance improvements](http://x64dbg.com/blog/#disassembly-speed-improvements) have introduced lots of GUI refresh bugs. Even more have been solved this week...
+Sadly the recent [performance improvements](http://x64dbg.com/blog/#disassembly-speed-improvements) have introduced lots of GUI refresh bugs. Many were fixed and even more have been solved this week...
 
 ## Remember history in goto file offset and RVA
 
