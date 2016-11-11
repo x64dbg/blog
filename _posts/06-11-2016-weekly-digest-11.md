@@ -97,7 +97,7 @@ Some time ago a [translation](http://translate.x64dbg.com) was opened at [Crowdi
 
 If you have some time it would be appreciated if you could translate a few sentences in your language!
 
-## Final words
+## Usual things
 
 That has been about it for this week again. If you have any questions, contact us on [Telegram](http://telegram.x64dbg.com), [Gitter](http://gitter.x64dbg.com) or [IRC](http://webchat.freenode.net/?channels=x64dbg). If you want to see the changes in more detail, check the [commit log](https://github.com/x64dbg/x64dbg/commits).
 

@@ -62,7 +62,7 @@ Thanks again to [kkthx](https://github.com/kkthx) you can now save the currently
 
 ![graph save](https://i.imgur.com/mqY8UaJ.png)
 
-## Final words
+## Usual stuff
 
 That has been about it for this week again. If you have any questions, contact us on [Telegram](http://telegram.x64dbg.com), [Gitter](http://gitter.x64dbg.com) or [IRC](http://webchat.freenode.net/?channels=x64dbg). If you want to see the changes in more detail, check the [commit log](https://github.com/x64dbg/x64dbg/commits).
 
