@@ -44,7 +44,7 @@ Another pull request by [kkthx](https://github.com/kkthx) implemented very basic
 
 ## Fixed an issue with format delimiters
 
-When using the [string formatting](http://help.x64dbg.com/en/latest/introduction/Formatting.html) functionality of the log, the logging of `{4:[esp+4]}` would fail, this now works as expected.
+When using the [string formatting](http://help.x64dbg.com/en/latest/introduction/Formatting.html) functionality, the logging of `{4:[esp+4]}` would fail, this now works as expected.
 
 ## Add comments and labels in the graph view
 
