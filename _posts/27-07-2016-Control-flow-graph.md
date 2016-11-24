@@ -17,7 +17,7 @@ At the moment [x64dbg](http://x64dbg.com) is only capable of showing disassembly
 
 The first thing to look at is analysis of a function. We represent the function as a directed graph. The graph nodes are so-called *basic blocks* and the graph's edges (arrows) are jumps in the disassembly. The function we will be looking at is shown below:
 
-[function1]({{ site.baseurl }}/public/images/blog27072916-function1.png)
+![function1]({{ site.baseurl }}/public/images/blog27072916-function1.png)
 
 In this case a basic block is a block of instructions, that *do not alter the control flow within the current function*. We (falsely) assume that `call` instructions always return to the instruction after said `call` instruction so the control flow of the block is not interrupted. Additionally a basic block ends at a `ret` instruction (since that marks the end of the current function).
 
@@ -58,11 +58,11 @@ analyze(entryPoint):
 
 The functions `brtrue` and `brfalse` return the addresses of the destination blocks or zero. After running this analysis on the function the result looks something like this:
 
-[graph1]({{ site.baseurl }}/public/images/blog27072916-graph1.png)
+![graph1]({{ site.baseurl }}/public/images/blog27072916-graph1.png)
 
 At the moment analysis is not working correctly. The analysis will have overlapping blocks if there are branches inside an existing block. It looks something like this (function is totally made up, don't read too much into it):
 
-[graph2]({{ site.baseurl }}/public/images/blog27072916-graph2.png)
+![graph2]({{ site.baseurl }}/public/images/blog27072916-graph2.png)
 
 The first block should be split and a second pass easily solves this problem:
 
@@ -80,11 +80,11 @@ for node in nodes:
 
 This splits the block correctly and inserts an extra edge between the nodes:
 
-[graph3]({{ site.baseurl }}/public/images/blog27072916-graph3.png)
+![graph3]({{ site.baseurl }}/public/images/blog27072916-graph3.png)
 
 Now there are some remaining problems, like overlapping instructions, but those are fine the way it is in my opinion:
 
-[graph4]({{ site.baseurl }}/public/images/blog27072916-graph4.png)
+![graph4]({{ site.baseurl }}/public/images/blog27072916-graph4.png)
 
 You can find the full code [here](https://github.com/x64dbg/x64dbg/blob/47f044eeb1ced86a9f191038b8991fac88b71764/src/dbg/analysis/recursiveanalysis.cpp#L58) if you are interested in the details.
 
