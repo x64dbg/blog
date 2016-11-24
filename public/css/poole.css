@@ -428,3 +428,24 @@ a.pagination-item:hover {
     border-bottom-right-radius: 4px;
   }
 }
+
+#largeImage {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+#largeImage img {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border: 2px solid gray;
+    padding: 1px;
+    background: white;
+}
