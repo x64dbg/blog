@@ -31,7 +31,7 @@ As I said before, this plugin took as base code to APIInfo, so most of its core 
 
 Anyway, the functioning of the plugin is pretty straightforward. In the image below it's found a flowchart of its main backbone functions.
 
-![backbone flowchart](https://i.imgur.com/HZMKA43.png)
+[![backbone flowchart](https://i.imgur.com/HZMKA43.png)](https://i.imgur.com/HZMKA43.png)
 
 The plugin starts by launching some of the internal analysis algorithms of x64dbg, such as: [cfanal](http://x64dbg.readthedocs.io/en/latest/commands/analysis/cfanalyze.html), [exanal](http://x64dbg.readthedocs.io/en/latest/commands/analysis/exanalyse.html), [analx](http://x64dbg.readthedocs.io/en/latest/commands/analysis/analxrefs.html), [analadv](http://x64dbg.readthedocs.io/en/latest/commands/analysis/analadv.html) or [anal](http://x64dbg.readthedocs.io/en/latest/commands/analysis/analyse.html). Soon after that it goes into API call analysis. The plugin gets the start and end address of the section in which the current `CONTEXT` is, this in order to loop and make the analysis overall these bytes. For processing each instruction the plugin uses `DbgDisasmFastAt` function which has the following definition:
 

@@ -77,7 +77,7 @@ The (currently undocumented) `printstack` command will print the callstack in th
 
 A user on Telegram requested an option to expand the highlighting of the mnemonic to the whole instruction. This has now been added and this allows you to create absolutely stunning syntax highlighting!
 
-![ugly af](https://i.imgur.com/dacTMsc.png)
+[![ugly af](https://i.imgur.com/dacTMsc.png)](https://i.imgur.com/dacTMsc.png)
 
 ## Removed the toggle option for certain registers
 

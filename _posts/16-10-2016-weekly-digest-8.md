@@ -42,7 +42,7 @@ By running the [analx](http://x64dbg.readthedocs.io/en/latest/commands/analysis/
 
 It is now possible to synchronise the current instruction of the graph with 'Origin' (EIP/RIP). This allows you to do some basic debugging in the graph view!
 
-![graph debugging](https://i.imgur.com/scLsSsu.gif)
+[![graph debugging](https://i.imgur.com/scLsSsu.gif)](https://i.imgur.com/scLsSsu.gif)
 
 ## Freeze stack has been fixed
 
