@@ -12,4 +12,4 @@ function largeImageClick() {
 $(document).ready(function() {
     $(".post img").click(imageClick);
     $("#largeImage").click(largeImageClick);
-}
+});
