@@ -438,6 +438,7 @@ a.pagination-item:hover {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
 }
+
 #largeImage img {
     position: fixed;
     left: 50%;
@@ -445,7 +446,5 @@ a.pagination-item:hover {
     -ms-transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    border: 2px solid gray;
-    padding: 1px;
     background: white;
 }
