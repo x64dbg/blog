@@ -118,7 +118,7 @@ Issue [#1108](https://github.com/x64dbg/x64dbg/issues/1108) that requests displa
 
 There is an [example script](https://gist.github.com/mrexodia/e949ab26d5986a5fc1fa4944ac68147a) available and the documentation is [here](http://help.x64dbg.com/en/latest/commands/types/index.html). There will be a blog post later explaining the type system in more detail.
 
-[![stack struct](https://i.imgur.com/dkMDoE7.png)](https://i.imgur.com/dkMDoE7.png)
+[stack struct](https://i.imgur.com/dkMDoE7.png)
 
 ## Fail assembling short jumps that don't fit in 2 bytes
 
