@@ -5,7 +5,9 @@ author: mrexodia
 website: http://mrexodia.cf
 ---
 
-This week there wasn't much going on in the codebase and therefore I decided to skip the weekly digest and write a more substantial post. Hopefully it's an interesting read!
+This week there wasn't much going on in the codebase and therefore I decided to skip the weekly digest and write a more substantial post, this time about the type system.
+
+The goal of the type system is to provide a more powerful view of memory than just a linear stream of bytes. It can be used to visualize structures and the type system also supports function definitions that will be used later. Hopefully it's an interesting read!
 
 ## Internal representation
 
