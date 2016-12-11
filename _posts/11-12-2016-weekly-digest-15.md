@@ -39,7 +39,10 @@ Recently a tool called [pe_unmapper](https://github.com/hasherezade/malware_anal
 There are some new functions available for plugins that help with querying the `PROCESS_INFORMATION` of the debuggee. These functions are:
 
 ```c++
-BRIDGE_IMPEXP HANDLE DbgGetProcessHandle();BRIDGE_IMPEXP HANDLE DbgGetThreadHandle();BRIDGE_IMPEXP DWORD DbgGetProcessId();BRIDGE_IMPEXP DWORD DbgGetThreadId();
+BRIDGE_IMPEXP HANDLE DbgGetProcessHandle();
+BRIDGE_IMPEXP HANDLE DbgGetThreadHandle();
+BRIDGE_IMPEXP DWORD DbgGetProcessId();
+BRIDGE_IMPEXP DWORD DbgGetThreadId();
 ```
 
 ## Various improvements to the type system
@@ -58,7 +61,7 @@ Various additional styles have been added on the [wiki](https://github.com/x64db
 
 ## Case-insensitive regex search in symbol view
 
-It is now possible to use both case sensitive and insensitive searching in the symbol view.
+It is now possible to use both case sensitive and insensitive regex searching in the symbol view.
 
 ![regex](https://i.imgur.com/O4R9hTa.png)
 
