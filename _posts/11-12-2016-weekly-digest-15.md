@@ -58,6 +58,10 @@ Various additional styles have been added on the [wiki](https://github.com/x64db
 
 ## Case-insensitive regex search in symbol view
 
+It is now possible to use both case sensitive and insensitive searching in the symbol view.
+
+![regex](https://i.imgur.com/O4R9hTa.png)
+
 ## GUI speed improvements
 
 A bad locking mechanism has been replaced by [Event Objects](goo.gl/Wc4BoS), resulting in a noticeable performance improvement, mostly when visiting types.
