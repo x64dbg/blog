@@ -67,7 +67,7 @@ It is now possible to use both case sensitive and insensitive regex searching in
 
 ## GUI speed improvements
 
-A bad locking mechanism has been replaced by [Event Objects](goo.gl/Wc4BoS), resulting in a noticeable performance improvement, mostly when visiting types.
+A bad locking mechanism has been replaced by [Event Objects](https://goo.gl/Wc4BoS), resulting in a noticeable performance improvement, mostly when visiting types.
 
 ## Intercept more functions for crashdumps
 
