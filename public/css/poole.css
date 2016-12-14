@@ -167,10 +167,9 @@ pre {
   font-size: .8rem;
   line-height: 1.4;
   white-space: pre;
-  word-break: break-all;
-  word-wrap: break-word;
   background-color: #f9f9f9;
-  overflow: auto;
+  overflow: auto !important;
+  width: 100% !important;
 }
 pre code {
   padding: 0;
