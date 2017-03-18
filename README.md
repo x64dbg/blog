@@ -17,7 +17,7 @@ This will be the official blog for [x64dbg](http://x64dbg.com). **This blog is l
 
 Writing a new post is very easy. It is basically [Markdown](https://simplemde.com/markdown-guide) with some extra setup to make [Jekyll](https://jekyllrb.com) render the post nicely.
 
-Create a new file called `DD-MM-YYYY-Your-post-title.md` in the `_posts` directory and start with the following setup:
+Create a new file called `YYYY-MM-DD-Your-post-title.md` in the `_posts` directory and start with the following setup:
 
 ```
 ---
