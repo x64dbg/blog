@@ -5,7 +5,7 @@ author: mrexodia
 website: http://mrexodia.cf
 ---
 
-This will be the official blog for [x64dbg](http://x64dbg.com). **This blog is looking for writers!** Send a pull request [here](https://github.com/x64dbg/blog) to get your content related to x64dbg posted here.
+This will be the official blog for [x64dbg](http://x64dbg.com). **This blog is looking for writers!** Send a pull request [here](https://github.com/x64dbg/blog) to get your content related to x64dbg posted here. If you want to write something but don't know exactly how, come in [contact](http://x64dbg.com/#contact) discuss a topic with us.
 
 ## Topics
 
@@ -15,6 +15,7 @@ This will be the official blog for [x64dbg](http://x64dbg.com). **This blog is l
 - Plugin showcase.
 - Script showcase.
 - Features currently in development.
+- Exploit development.
 - Anything else related to x64dbg...
 
 ## Writing a post
