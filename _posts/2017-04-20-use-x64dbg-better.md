@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Use x64dbg better
+title: Make better use of x64dbg
 author: torusrxxx
-website: https://github.com/torusrxxx/
+website: https://github.com/torusrxxx
 ---
 
 As a main developer for x64dbg, I have introduced many features to x64dbg. Some of them are highly visible. But some of them are not so visible but still worth mentioning. There are numerous features offered by x64dbg which you might not know before, or have not make good use of. This blog will introduce some of these "hidden" features and good ways to make use of them.
