@@ -25,7 +25,7 @@ There are numerous commands and functions which do not appear in the GUI, so few
 
 ## Use tracing where it works best
 
-Tracing is an expensive operation. It is very slow compared to breakpoints. So whenever breakpoint can be used tracing should not be done. Tracing has an advantage in case you don't know which code is going to be executed. For example, you can do a trace to see when do the variable reset. If the code gets to a point every iteration, you can set a conditional breakpoint there, otherwise you can start a trace. Don't hold the step key for more than a minute. It is more wise to let the computer do such an expensive operation for you.
+Tracing is an expensive operation. It is very slow compared to breakpoints. So whenever breakpoint can be used tracing should not be done. Tracing has an advantage in case you don't know which code is going to be executed. For example, you can do a trace to see when a variable resets. If the code gets to a point every iteration, you can set a conditional breakpoint there, otherwise you can start a trace. Don't hold the step key for more than a minute. It is more wise to let the computer do such an expensive operation for you.
 
 ## Use trace record
 
