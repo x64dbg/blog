@@ -3,7 +3,7 @@ layout: post
 title: Type system
 author: mrexodia
 website: http://mrexodia.cf
-contents: ["Internal representation", "Conclusion"]
+contents: ["Internal representation", "Primitives", "Types", "Members", "StructUnions", "Functions", "Where is the tree?", "Visitor", "Conclusion"]
 
 ---
 

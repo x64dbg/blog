@@ -3,7 +3,7 @@ layout: post
 title: xAnalyzer Reviewed
 author: ThunderCls
 website: http://reversec0de.wordpress.com
-contents: ["Introduction", "Going back", "What is xAnalyzer?", "Basic functionality"]
+contents: ["Introduction", "Going back", "What is xAnalyzer?", "Basic functionality", "CALL -> JMP -> API (Indirect Call)", "CALL -> POINTER -> API (Indirect Call)", "CALL -> API (Direct Call)"]
 
 ---
 

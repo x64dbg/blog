@@ -3,7 +3,7 @@ layout: post
 title: Architecture of x64dbg
 author: torusrxxx
 website: https://github.com/torusrxxx
-contents: ["Bootstrapping", "Debugging", "Message passing from GUI to DBG", "Message flow from DBG to GUI", "Important subsystems in GUI", "Important subsystems in DBG"]
+contents: ["Bootstrapping", "Debugging", "Message passing from GUI to DBG", "Commands dispatch", "Directly exported functions", "Export functions dispatch", "DbgFunctions", "Message flow from DBG to GUI", "Important subsystems in GUI", "Tables in GUI", "Context menu management", "Configuration management", "Important subsystems in DBG", "threading.h", "x64dbg.cpp", "memory.h , module.h and thread.h, label.h and breakpoint.h, etc", "scriptapi"]
 
 ---
 

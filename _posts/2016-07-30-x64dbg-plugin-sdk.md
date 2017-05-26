@@ -3,7 +3,7 @@ layout: post
 title: x64dbg plugin SDK
 author: fearless
 website: http://www.LetTheLight.in
-contents: ["Contents", "Overview", "Common questions", "Understanding the x64dbg plugin architecture", "The plugin load sequence", "DllMain", "The pluginit exported function", "The plugsetup exported function", "The callback exported functions and structures", "Summary", "Afterword", "Additional resources of interest"]
+contents: ["Contents", "Overview", "Common questions", "Wait, what? there are two plugin SDKs?", "Which plugin SDK should I use?", "Why create a plugin SDK in assembler?", "What assembler should I use, if I'm to use the plugin SDK for assembler?", "Why write a plugin?", "Ongoing development", "Feature request alignment", "Understanding the x64dbg plugin architecture", "The plugin load sequence", "DllMain", "The pluginit exported function", "The plugsetup exported function", "The callback exported functions and structures", "\_plugin\_registercallback", "The registered event callback function for \_plugin\_registercallback", "The CDECL export callback function", "Summary", "Afterword", "Additional resources of interest", "x64dbg", "x64dbg Plugin SDK For Assembler", "Assemblers", "Other"]
 
 ---
 
