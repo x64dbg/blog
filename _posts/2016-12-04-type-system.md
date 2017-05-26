@@ -3,6 +3,8 @@ layout: post
 title: Type system
 author: mrexodia
 website: http://mrexodia.cf
+contents: ["Internal representation", "Conclusion"]
+
 ---
 
 This week there wasn't much going on in the codebase and therefore I decided to skip the weekly digest and write a more substantial post, this time about the type system.

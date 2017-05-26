@@ -3,6 +3,7 @@ layout: post
 title: Weekly digest 5
 author: mrexodia
 website: http://mrexodia.cf
+contents: ["Register and argument view enhancements", "Dynamically load/unload plugins", "Improvements to the info box", "Fixed search for constant references", "Copy improvements", "Improved the favorites dialog", "Fixed confusing wording", "Better uppercase disassembly", "Fixed compile error with yara in the pluginsdk", "Improved selection API", "Improved dbload command", "Expression functions for reading data", "Improved documentation", "Progress with a type system", "Plugin template for Visual Studio", "GetRelocSize", "MxCsr", "Final words"]
 
 ---
 

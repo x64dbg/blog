@@ -3,6 +3,7 @@ layout: post
 title: The x64dbg threading model
 author: mrexodia
 website: http://mrexodia.cf
+contents: ["Command loop thread", "Debug thread", "Script thread", "Worker threads", "TaskThread", "GUI Thread"]
 
 ---
 

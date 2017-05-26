@@ -11,6 +11,11 @@ title: Archive
         {{ post.title }}
       </a>
     </h1>
+	<ul>
+	  {% for content in post.contents %}
+	  <li>{{ content }}</li>
+	  {% endfor %}
+	</ul>
     <span class="post-date">{{ post.date | date_to_string }}, by <a href="{{ post.website }}">{{ post.author}}</a>, <a href="{{ site.baseurl }}{{ post.url }}#comments">comments</a></span>
   </div>
   {% endfor %}

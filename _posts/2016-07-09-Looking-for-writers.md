@@ -3,6 +3,8 @@ layout: post
 title: Looking for writers!
 author: mrexodia
 website: http://mrexodia.cf
+contents: ["Topics", "Writing a post"]
+
 ---
 
 This will be the official blog for [x64dbg](http://x64dbg.com). **This blog is looking for writers!** Send a pull request [here](https://github.com/x64dbg/blog) to get your content related to x64dbg posted here. If you want to write something but don't know exactly how, come in [contact](http://x64dbg.com/#contact) discuss a topic with us.

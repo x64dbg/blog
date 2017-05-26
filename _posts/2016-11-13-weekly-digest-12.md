@@ -3,6 +3,7 @@ layout: post
 title: Weekly digest 12
 author: mrexodia
 website: http://mrexodia.cf
+contents: ["Reflection", "Releases and versioning", "Fixed more GUI issues", "Fixed inconsistent shortcuts", "Added content description in the memory map", "Fixed an issue with format delimiters", "Add comments and labels in the graph view", "Add shortcut for copy RVA", "Don't list automatic comments per default", "Plugin callback for dynamic comments", "Added more plugin templates", "Final words"]
 
 ---
 

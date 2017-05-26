@@ -3,6 +3,8 @@ layout: post
 title: User interface design principles
 author: torusrxxx
 website: http://github.com/torusrxxx
+contents: ["Access any feature, anywhere", "Offer to show the most needed data to user", "Guide the user to do the right thing", "Easy to understand and master", "User interface customization is important", "Fast and responsive", "Afterword"]
+
 ---
 
 I just committed branch destination preview tooltip recently. When the project leader, Duncan, comes to me to express the users' appreciation, I feel a bit surprised. I just feel it will be needed by our users, and it indeed is. A good user interface design is a key to x64dbg's success. As users are demanding better user interface design, it is useful to share my ideas about what is a good user interface, and how to implement it.

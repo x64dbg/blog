@@ -3,6 +3,7 @@ layout: post
 title: Architecture of x64dbg
 author: torusrxxx
 website: https://github.com/torusrxxx
+contents: ["Bootstrapping", "Debugging", "Message passing from GUI to DBG", "Message flow from DBG to GUI", "Important subsystems in GUI", "Important subsystems in DBG"]
 
 ---
 

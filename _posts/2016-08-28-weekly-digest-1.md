@@ -3,6 +3,7 @@ layout: post
 title: Weekly digest 1
 author: x64dbg
 website: http://x64dbg.com
+contents: ["Improvements to the attach dialog", "Disable debuggee notes when debugging", "Translation of the DBG", "Search box locking in symbol view", "Various GUI improvements", "Don't freeze when the debuggee doesn't close properly", "Warn when setting a software breakpoint in non-executable memory", "Signed and unsigned bytes in the dump", "Fixed WOW64 redirection issues", "Fixed invalid save to file sizes", "Added imageinfo command", "Updated Yara to 3.5.0", "Work on GleeBug", "Final words"]
 
 ---
 

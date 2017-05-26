@@ -3,6 +3,7 @@ layout: post
 title: Weekly digest 4
 author: mrexodia
 website: http://mrexodia.cf
+contents: ["Fixed goto dialog for reserved memory pages", "Different trace record + selection color in the graph", "No foreground window per default", "Disassembly preview is now theme aware", "Search pattern in module", "Fixed intermodular calls in module", "Added various memory-related expression functions", "Script DLL template for Visual Studio", "UpxUnpacker for x64dbgpy", "Register view enhancements", "University", "Final words"]
 
 ---
 

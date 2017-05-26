@@ -3,6 +3,8 @@ layout: post
 title: Control flow analysis and graphing
 author: mrexodia
 website: http://mrexodia.cf
+contents: ["Introduction", "Analysis", "GUI"]
+
 ---
 
 Today's post will be about control flow analysis and graphing, so read on if you are interested!

@@ -3,6 +3,7 @@ layout: post
 title: xAnalyzer Reviewed
 author: ThunderCls
 website: http://reversec0de.wordpress.com
+contents: ["Introduction", "Going back", "What is xAnalyzer?", "Basic functionality"]
 
 ---
 
@@ -110,4 +111,3 @@ As for now, x64dbg doesn't allow nested function arguments, even though xAnalyze
 And this is all for this post, xAnalyzer x64dbg plugin exposed. For latest relases, info, issues, etc go to the [project page](https://github.com/ThunderCls/xAnalyzer).
 
 ThunderCls signing out
-

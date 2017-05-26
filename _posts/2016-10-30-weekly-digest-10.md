@@ -3,6 +3,7 @@ layout: post
 title: Weekly digest 10
 author: mrexodia
 website: http://mrexodia.cf
+contents: ["InterObfu", "Updated mnemonic database", "Replace non-printable characters with special characters", "Better split function for commands", "Fixed global notes", "Added some expression functions", "Allow editing of the watch expression", "Added simple logging of instructions", "Process GUI events in the script API", "Added run to selection in the graph view", "Save the graph view to a file", "Usual stuff"]
 
 ---
 

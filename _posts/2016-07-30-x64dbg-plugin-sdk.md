@@ -3,6 +3,8 @@ layout: post
 title: x64dbg plugin SDK
 author: fearless
 website: http://www.LetTheLight.in
+contents: ["Contents", "Overview", "Common questions", "Understanding the x64dbg plugin architecture", "The plugin load sequence", "DllMain", "The pluginit exported function", "The plugsetup exported function", "The callback exported functions and structures", "Summary", "Afterword", "Additional resources of interest"]
+
 ---
 
 ## Contents

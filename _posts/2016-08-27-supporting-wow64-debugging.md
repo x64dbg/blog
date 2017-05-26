@@ -3,6 +3,8 @@ layout: post
 title: 64bit Debugging and the WoW64 File System Redirection
 author: genuine
 website: https://github.com/blaquee
+contents: ["A small note on WoW64 Redirection on Windows", "How this affected the x96dbg.exe loader", "The Fix", "References"]
+
 ---
 
 ## A small note on WoW64 Redirection on Windows

@@ -3,6 +3,8 @@ layout: post
 title: Introducing Contemporary Reverse Engineering Techniques to Real World Use
 author: Anonymous
 website: http://x64dbg.com
+contents: ["How do we reverse engineer a program these days?", "Automation and analysis are more important", "Introducing dynamic analysis", "The future of reverse engineering"]
+
 ---
 
 ## How do we reverse engineer a program these days?
