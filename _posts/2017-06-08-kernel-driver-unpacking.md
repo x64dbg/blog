@@ -155,7 +155,7 @@ Restart the executable and run again to get to the same location (the hardware b
 @again:
 24037 sub r15,1000
 2403E mov rcx,r15
-24044 call qword ptr ds:[r14] 'MmIsAddressValid'
+24044 call qword ptr ds:[r14] ; 'MmIsAddressValid'
 2404A or al,al
 2404C je @again
 24060 mov dx,5A4D ; 'MZ'
@@ -277,9 +277,11 @@ Opening the executable in x64dbg should now directly take you to the entry point
 
 ## Conclusion
 
-I hope this blogpost has been educational and entertaining. I definitely had fun unpacking and restoring the driver, even though the process was obviously not as straightforward from the start.
+I hope this blog post has been educational and entertaining. I definitely had fun unpacking and restoring the driver, even though the process was obviously not as straightforward from the start.
 
 You can find the `aksdf.exe` database (`File -> Import database`) [here](https://gist.github.com/mrexodia/65ff4248e2d35d830491c0bd3e6e09a6). The import resolving routine and hashing routines have been worked a little, to show you a better picture of the code. It also has a few comments and labels to help you navigate the code better.
+
+Hope to see you again soon!
 
 ### Hashes (sample used here)
 
