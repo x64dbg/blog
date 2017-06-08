@@ -285,20 +285,20 @@ Hope to see you again soon!
 
 ### Hashes (sample used here)
 
-MD5: `3190c577746303ca4c65114441192fe2`
-
-SHA1: `e97cd85c0ef125dd666315ea14d6c1b47d97f938`
-
-SHA256: `aee970d59e9fb314b559cf0c41dd2cd3c9c9b5dd060a339368000f975f4cd389`
+```
+MD5: 3190c577746303ca4c65114441192fe2
+SHA1: e97cd85c0ef125dd666315ea14d6c1b47d97f938
+SHA256: aee970d59e9fb314b559cf0c41dd2cd3c9c9b5dd060a339368000f975f4cd389
+```
 
 [VirusTotal]( https://www.virustotal.com/en/file/aee970d59e9fb314b559cf0c41dd2cd3c9c9b5dd060a339368000f975f4cd389/analysis), [malwr](https://malwr.com/analysis/Mjk0NGFmZmY4MGJmNDdlOTkzNzA4ODc5YjcwZjU0OGY).
 
 ### Hashes (another sample)
 
-MD5: `3190c577746303ca4c65114441192fe2`
-
-SHA1: `e97cd85c0ef125dd666315ea14d6c1b47d97f938`
-
-SHA256: `aee970d59e9fb314b559cf0c41dd2cd3c9c9b5dd060a339368000f975f4cd389`
+```
+MD5: 3190c577746303ca4c65114441192fe2
+SHA1: e97cd85c0ef125dd666315ea14d6c1b47d97f938
+SHA256: aee970d59e9fb314b559cf0c41dd2cd3c9c9b5dd060a339368000f975f4cd389
+```
 
 [VirusTotal](https://www.virustotal.com/en/file/55bb0857c9f5bbd47ddc598ba67f276eb264f1fe225a06c6546bf1556ddf60d4/analysis), [FileMare](https://filemare.com/en-US/browse/31.28.106.81/Distrib/1C/1Cx64/x64/AladdinDriver/aksdf.sys).
