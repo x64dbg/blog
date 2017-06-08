@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kernel driver unpacking with x64dbg
+title: Kernel driver unpacking
 author: mrexodia
 website: http://mrexodia.cf
 contents: ["Initial analysis", "Faking the kernel imports", "Unpacking", "Finding a faster way of unpacking", "Dumping + Rebuilding", "Conclusion"]
