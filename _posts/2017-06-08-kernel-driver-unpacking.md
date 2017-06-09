@@ -85,6 +85,8 @@ As a final step, extract the fake `ntoskrnl.exe` and `fltmgr.sys` to the same di
 
 ![driver entry point](https://i.imgur.com/GCJmxir.png)
 
+*I got a [tweet](https://twitter.com/angealbertini/status/872920977151332353) that linked to an alternative [library](https://github.com/angea/corkami/blob/03adbf6bfc38e13ab8391e604d78bbbb983b5d1e/wip/MakePE/examples/PE/ntoskrnl.asm) (with more emulated functions) that you can use.*
+
 ## Unpacking
 
 When stepping around you'll see that the code is quite unreadable. There are many [opaque predicates](http://zubcic.re/blog/experimenting-with-z3-proving-opaque-predicates) and branches inside other instructions. You can *slightly* improve the readability by manually pressing `B` (`Right Click -> Analysis -> Treat from selection as -> Byte`), marking the irrelevant bytes as data, but I would not recommend this approach since tracing is a much simpler option.
