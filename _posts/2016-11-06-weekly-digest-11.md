@@ -17,7 +17,7 @@ Just like [conditional breakpoints](http://help.x64dbg.com/en/latest/introductio
 
 ## Fixed more GUI update issues
 
-Sadly the recent [performance improvements](http://x64dbg.com/blog/#disassembly-speed-improvements) have introduced lots of GUI refresh bugs. Many were fixed and even more have been solved this week...
+Sadly the recent [performance improvements](https://x64dbg.com/blog/#disassembly-speed-improvements) have introduced lots of GUI refresh bugs. Many were fixed and even more have been solved this week...
 
 ## Remember history in goto file offset and RVA
 
@@ -72,7 +72,7 @@ The (currently undocumented) `printstack` command will print the callstack in th
 
 ## Set foreground on system breakpoint
 
-[Some time ago](http://x64dbg.com/blog/2016/09/11/weekly-digest-3.html#setting-to-not-call-setforegroundwindow) an option was introduced that would disable calls to set x64dbg as the foreground window. One of these calls is now removed and x64dbg will always be on the foreground after you started a new debug session.
+[Some time ago](https://x64dbg.com/blog/2016/09/11/weekly-digest-3.html#setting-to-not-call-setforegroundwindow) an option was introduced that would disable calls to set x64dbg as the foreground window. One of these calls is now removed and x64dbg will always be on the foreground after you started a new debug session.
 
 ## Option to not highlight operands separately
 

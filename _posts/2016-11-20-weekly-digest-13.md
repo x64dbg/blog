@@ -11,7 +11,7 @@ This is already number thirteen of the weekly digests! It will highlight the thi
 
 ## This is an open blog!
 
-In case you didn't know yet, this blog is [looking for writers](http://x64dbg.com/blog/2016/07/09/Looking-for-writers.html). You (or your company) are welcome to write a post related to x64dbg on this blog. Check out the link for more information!
+In case you didn't know yet, this blog is [looking for writers](https://x64dbg.com/blog/2016/07/09/Looking-for-writers.html). You (or your company) are welcome to write a post related to x64dbg on this blog. Check out the link for more information!
 
 Also on a side note, I'm currently very busy with my studies so various promised posts (expression parser, type system) are placed on the backlog. I would very much like to keep this blog alive but writing is a very time consuming practice and I could very much use some help from you guys in the form of a post. Contact me if you're interested and I will help you get started!
 

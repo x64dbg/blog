@@ -761,7 +761,7 @@ fearless
 
 ### x64dbg
 
-* [x64dbg Website](http://x64dbg.com)
+* [x64dbg Website](https://x64dbg.com)
 * [x64dbg Github](https://github.com/x64dbg/x64dbg)
 * [x64dbg Latest Release](http://releases.x64dbg.com)
 

@@ -3,7 +3,7 @@ title: x64dbg
 tagline: Official x64dbg blog!
 description: Official x64dbg blog!
 baseurl: /blog
-url: http://x64dbg.com/blog
+url: https://x64dbg.com/blog
 twitter_username: x64dbg
 github_username: x64dbg
 
@@ -14,7 +14,7 @@ github:
 
 author:
   name: 'x64dbg'
-  url: http://x64dbg.com
+  url: https://x64dbg.com
   email: blog@x64dbg.com
 
 # Build settings

@@ -11,7 +11,7 @@ Recently, a friend of mine asked me to look into a packed kernel driver. I decid
 
 Tools required:
 
-- [x64dbg](http://x64dbg.com) (duh)
+- [x64dbg](https://x64dbg.com) (duh)
 - [CFF Explorer](http://www.ntcore.com/exsuite.php)
 - [Visual Studio](https://www.visualstudio.com/downloads) (optional)
 

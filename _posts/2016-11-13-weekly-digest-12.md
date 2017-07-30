@@ -11,7 +11,7 @@ This is already number twelve of the weekly digests! It will highlight the thing
 
 ## Reflection
 
-Over the last three weeks there has been lots of instability going on, mostly related to [disassembly speed improvements](http://x64dbg.com/blog/2016/10/23/weekly-digest-9.html#disassembly-speed-improvements). I expected around a week of instability, but unfortunately people keep finding issues and I cannot say with certainty that all bugs are gone.
+Over the last three weeks there has been lots of instability going on, mostly related to [disassembly speed improvements](https://x64dbg.com/blog/2016/10/23/weekly-digest-9.html#disassembly-speed-improvements). I expected around a week of instability, but unfortunately people keep finding issues and I cannot say with certainty that all bugs are gone.
 
 The main reason for this being such an issue is that during initial development of the GUI a convenient function called `GuiUpdateAllViews` was introduced. This function will call the 'force refresh' functions of all individual views (disassembly, dump, stack, registers, sidebar, infobox, arguments, breakpoints, graph, call stack, memory map, etc.). Currently this function is no longer called in performance-critical code (such as the function responsible for updating the GUI to represent the current context) and many implicit update calls now have to be converted to explicit ones, which is a very prone to errors.
 

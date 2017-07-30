@@ -7,7 +7,7 @@ contents: ["Command loop thread", "Debug thread", "Script thread", "Worker threa
 
 ---
 
-In a recent post about the [architecture of x64dbg](http://x64dbg.com/blog/2016/10/04/architecture-of-x64dbg.html) there was a comment to explain the "little bit of a mess" that is the threading model of x64dbg. It is indeed not particularly pretty, but everything has a purpose.
+In a recent post about the [architecture of x64dbg](https://x64dbg.com/blog/2016/10/04/architecture-of-x64dbg.html) there was a comment to explain the "little bit of a mess" that is the threading model of x64dbg. It is indeed not particularly pretty, but everything has a purpose.
 
 ## Command loop thread
 

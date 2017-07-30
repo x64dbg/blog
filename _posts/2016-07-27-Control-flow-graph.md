@@ -13,7 +13,7 @@ Today's post will be about control flow analysis and graphing, so read on if you
 
 ## Introduction
 
-At the moment [x64dbg](http://x64dbg.com) is only capable of showing disassembly in a linear fashion. Control flow can be somewhat inferred from jump arrows, but this can be a tedious and overwhelming process. This is one of the reasons we are interested in representing disassembly as a control flow graph. Another good reason is that x86 instructions can overlap and sometimes linear disassembly cannot show the full picture.
+At the moment [x64dbg](https://x64dbg.com) is only capable of showing disassembly in a linear fashion. Control flow can be somewhat inferred from jump arrows, but this can be a tedious and overwhelming process. This is one of the reasons we are interested in representing disassembly as a control flow graph. Another good reason is that x86 instructions can overlap and sometimes linear disassembly cannot show the full picture.
 
 ## Analysis
 

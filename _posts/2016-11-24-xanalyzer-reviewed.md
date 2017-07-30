@@ -28,7 +28,7 @@ xAnalyzer is a x64dbg plugin written by me to extend and/or complement the core 
 
 ## Basic functionality
 
-As I said before, this plugin took as base code to APIInfo, so most of its core functionality is from mrfearless' code. Apart from that, I wanted to go a little bit further than just make a translation of his code into C++ and so I came up with something more like the kind of features I wanted before. The process of creating your own plugins for x64dbg is explained [here](http://x64dbg.com/blog/2016/07/30/x64dbg-plugin-sdk.html) and even the documentation and plugin templates for Visual Studio and other several compilers have been created, so I don't pretend to cover all of that in this post.
+As I said before, this plugin took as base code to APIInfo, so most of its core functionality is from mrfearless' code. Apart from that, I wanted to go a little bit further than just make a translation of his code into C++ and so I came up with something more like the kind of features I wanted before. The process of creating your own plugins for x64dbg is explained [here](https://x64dbg.com/blog/2016/07/30/x64dbg-plugin-sdk.html) and even the documentation and plugin templates for Visual Studio and other several compilers have been created, so I don't pretend to cover all of that in this post.
 
 Anyway, the functioning of the plugin is pretty straightforward. In the image below it's found a flowchart of its main backbone functions.
 

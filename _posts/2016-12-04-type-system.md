@@ -198,4 +198,4 @@ The actual structure view in x64dbg will look like this:
 
 ## Conclusion
 
-This post has mostly highlighted the internal representation of the type system, for more information on how to actually use it in x64dbg you can check out [Weekly Digest 14](http://x64dbg.com/blog/2016/11/27/weekly-digest-14.html#types) and if you have any questions, please leave comments and I will try to address them.
+This post has mostly highlighted the internal representation of the type system, for more information on how to actually use it in x64dbg you can check out [Weekly Digest 14](https://x64dbg.com/blog/2016/11/27/weekly-digest-14.html#types) and if you have any questions, please leave comments and I will try to address them.
