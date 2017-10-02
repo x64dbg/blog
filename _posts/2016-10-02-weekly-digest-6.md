@@ -115,7 +115,7 @@ The plugin callback system didn't have a separation on type, which meant that pe
 
 ## Type system
 
-Issue [#1108](https://github.com/x64dbg/x64dbg/issues/1108) that requests displaying types has been partially addressed. The basics of a [type system](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/types.h) have been implemented and you can now create and view types.
+Issue [#1108](https://github.com/x64dbg/x64dbg/issues/1108) that requests displaying types has been partially addressed. The basics of a [type system](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/types.h) have been implemented and you can now create and view types.
 
 There is an [example script](https://gist.github.com/mrexodia/e949ab26d5986a5fc1fa4944ac68147a) available and the documentation is [here](http://help.x64dbg.com/en/latest/commands/types/index.html). There will be a blog post later explaining the type system in more detail.
 

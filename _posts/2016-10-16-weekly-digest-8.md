@@ -69,7 +69,7 @@ After the [x64dbgida](https://github.com/x64dbg/x64dbgida) plugin, there is now 
 
 ## Refactor
 
-There has been quite some refactoring going on. Most notably the [command callbacks](https://x64dbg.com/blog/2016/10/04/architecture-of-x64dbg.html#commands-dispatch) no longer require `CMDRESULT` as return type (making it even easier to write commands) and the [CPUStack](https://github.com/x64dbg/x64dbg/blob/development/src/gui/Src/Gui/CPUStack.cpp#L78) has been refactored to use the [MenuBuilder](https://x64dbg.com/blog/2016/10/04/architecture-of-x64dbg.html#context-menu-management) to save lots of development time in the long run.
+There has been quite some refactoring going on. Most notably the [command callbacks](https://x64dbg.com/blog/2016/10/04/architecture-of-x64dbg.html#commands-dispatch) no longer require `CMDRESULT` as return type (making it even easier to write commands) and the [CPUStack](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/gui/Src/Gui/CPUStack.cpp#L79) has been refactored to use the [MenuBuilder](https://x64dbg.com/blog/2016/10/04/architecture-of-x64dbg.html#context-menu-management) to save lots of development time in the long run.
 
 ## Tracing plugins
 

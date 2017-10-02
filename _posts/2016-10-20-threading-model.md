@@ -11,7 +11,7 @@ In a recent post about the [architecture of x64dbg](https://x64dbg.com/blog/2016
 
 ## Command loop thread
 
-The first thread of interest is the [command thread](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/command.cpp#L212). This thread is created during the initialization phase and it infinitely waits and executes commands that are given to it through the so-called [CommandProvider](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/x64dbg.cpp#L426). In the [very first version of x64dbg](https://bitbucket.org/mrexodia/x64_dbg_old/commits/24b5251f492aad0ac76b952ec783b6005f27fb1b#Lcommand.cppT56) the command thread was the main thread and since the [introduction of the GUI](https://bitbucket.org/mrexodia/x64_dbg_old/commits/d8b1abc6ac1b1ee98dd18ca8218fa53bfa4bc289#Lx64_dbg_dbg/x64_dbg.cppT138) this has been moved to a separate thread in favor of the GUI thread.
+The first thread of interest is the [command thread](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/command.cpp#L268). This thread is created during the initialization phase and it infinitely waits and executes commands that are given to it through the so-called [CommandProvider](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/x64dbg.cpp#L441). In the [very first version of x64dbg](https://bitbucket.org/mrexodia/x64_dbg_old/commits/24b5251f492aad0ac76b952ec783b6005f27fb1b#Lcommand.cppT56) the command thread was the main thread and since the [introduction of the GUI](https://bitbucket.org/mrexodia/x64_dbg_old/commits/d8b1abc6ac1b1ee98dd18ca8218fa53bfa4bc289#Lx64_dbg_dbg/x64_dbg.cppT138) this has been moved to a separate thread in favor of the GUI thread.
 
 ## Debug thread
 
@@ -21,7 +21,7 @@ The debug thread runs the [TitanEngine](https://bitbucket.org/titanengineupdate/
 
 Between `WaitForDebugEvent` and `ContinueDebugEvent`, the debuggee is in a paused state. The event handlers use [event objects](http://goo.gl/H3lEZL) to communicate with the GUI. When you click the 'Run' button it will set an event object and continue the debug loop and in that way also continue the debuggee.
 
-Here is a simplified version of the [cbDebugRun](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/commands/cmd-debug-control.cpp#L194) command callback (running on the command thread):
+Here is a simplified version of the [cbDebugRun](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/commands/cmd-debug-control.cpp#L35) command callback (running on the command thread):
 
 ```c++
 bool cbDebugRun(int argc, char* argv[])
@@ -37,7 +37,7 @@ bool cbDebugRun(int argc, char* argv[])
 }
 ```
 
-On the debug loop thread we have the [cbPauseBreakpoint](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/debugger.cpp#L628) breakpoint event handler that waits for the user to resume the debug loop (again, simplified):
+On the debug loop thread we have the [cbPauseBreakpoint](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/debugger.cpp#L683) breakpoint event handler that waits for the user to resume the debug loop (again, simplified):
 
 ```c++
 void cbPauseBreakpoint()
@@ -81,7 +81,7 @@ register.SetRAX(0x2b992ddfa232)
 debug.StepOut()
 ```
 
-There has to be some sort of synchronization at the end of `debug.Run` and `debug.StepOut` to make sure the debuggee is paused before the next command is executed. The implementation for this is in [_plugin_waituntilpaused](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/_plugins.cpp#L106) and looks like this:
+There has to be some sort of synchronization at the end of `debug.Run` and `debug.StepOut` to make sure the debuggee is paused before the next command is executed. The implementation for this is in [_plugin_waituntilpaused](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/_plugins.cpp#L146) and looks like this:
 
 ```c++
 PLUG_IMPEXP bool _plugin_waituntilpaused()
@@ -92,28 +92,28 @@ PLUG_IMPEXP bool _plugin_waituntilpaused()
 }
 ```
 
-The implementation of [dbgisrunning](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/debugger.cpp#L249) is a check if `lock(WAITID_RUN)` has been called.
+The implementation of [dbgisrunning](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/debugger.cpp#L286) is a check if `lock(WAITID_RUN)` has been called.
 
 ## Worker threads
 
 There are various threads that just do periodic background work. These include:
 
-- Refreshing the [memory map](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/debugger.cpp#L136)
-- Refreshing the [dumps](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/debugger.cpp#L178)
-- Refreshing the [time-wasted counter](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/debugger.cpp#L155)
+- Refreshing the [memory map](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/debugger.cpp#L163)
+- Refreshing the [dumps](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/debugger.cpp#L215)
+- Refreshing the [time-wasted counter](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/debugger.cpp#L192)
 
 Other threads are triggered once to fulfill a specific purpose. These include:
 
-- Command [animation](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/animate.cpp#L8)
-- Executing asynchronous [Script DLLs](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/x64dbg.cpp#L474)
-- Loading [databases from disk](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/x64dbg.cpp#L538)
-- Executing [Scylla](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/commands/cmd-plugins.cpp#L9)
-- Querying the [name of a handle](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/handles.cpp#L139)
-- Loading a [script from disk](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/simplescript.cpp#L464)
+- Command [animation](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/animate.cpp#L9)
+- Executing asynchronous [Script DLLs](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/x64dbg.cpp#L489)
+- Loading [databases from disk](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/x64dbg.cpp#L553)
+- Executing [Scylla](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/commands/cmd-plugins.cpp#L9)
+- Querying the [name of a handle](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/handles.cpp#L52)
+- Loading a [script from disk](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/simplescript.cpp#L455)
 
 ## TaskThread
 
-For interaction with the GUI, performance is very important. For this purpose [jdavidberger](https://github.com/jdavidberger) has implemented [TaskThread](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/taskthread.h). It's some variadic templates that basically allow you to trigger an arbitrary function from a different thread to then quickly return to the real work.
+For interaction with the GUI, performance is very important. For this purpose [jdavidberger](https://github.com/jdavidberger) has implemented [TaskThread](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/taskthread.h). It's some variadic templates that basically allow you to trigger an arbitrary function from a different thread to then quickly return to the real work.
 
 The actual thread runs in an infinite loop, waiting for the `TaskThread` instance to receive a `WakeUp` (trigger). Once awake, the specified function is executed and after that the thread is being delayed for a configurable amount of time. This ignores all triggers (except the last one) within the delay time to avoid unnecessary work.
 

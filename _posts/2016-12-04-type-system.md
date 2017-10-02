@@ -168,7 +168,7 @@ struct Visitor
 };
 ```
 
-The tree structure returns in the `Visitor`. The [visitMember](https://github.com/x64dbg/x64dbg/blob/development/src/dbg/types.cpp#L356) function recursively walks a `Member` and it's subtypes with [depth first search](https://en.wikipedia.org/wiki/Depth-first_search) and it will call one of the `visitX` functions to signal that a certain kind of node was visited. The `visitBack` function is called when a complex type subtree was left.
+The tree structure returns in the `Visitor`. The [visitMember](https://github.com/x64dbg/x64dbg/blob/33024f567230620eaa5cd5188b0c0f2c9903e1a9/src/dbg/types.cpp#L358) function recursively walks a `Member` and it's subtypes with [depth first search](https://en.wikipedia.org/wiki/Depth-first_search) and it will call one of the `visitX` functions to signal that a certain kind of node was visited. The `visitBack` function is called when a complex type subtree was left.
 
 As an example, take the `Ray` structure:
 
