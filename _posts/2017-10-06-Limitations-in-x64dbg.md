@@ -3,7 +3,7 @@ layout: post
 title: Limitations in x64dbg
 author: torusrxxx
 website: https://github.com/torusrxxx
-contents: []
+contents: ["Export functions", "Access to features", "Performance"]
 
 ---
 
