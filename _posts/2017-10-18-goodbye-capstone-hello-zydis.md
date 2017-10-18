@@ -32,5 +32,5 @@ So, what did x64dbg gain from the switch?
 
 Finally, aside from all the negativity, I would like to make it clear that we very much appreciate all the work done in Capstone. The project simply has a different focus: it's a great library if you're looking into supporting many different target architectures. Zydis, on the other hand, is focused on supporting X86 — and supporting it well.
 
-If you're interested in checking our work outside of x64dbg, here's the repo:
+If you're interested in checking out our work outside of x64dbg, here's the repo:
 https://github.com/zyantific/zydis
