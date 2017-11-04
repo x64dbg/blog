@@ -140,12 +140,12 @@ This time reproducing the issue gave some *very* useful results:
 
 ## Winner winner chicken dinner!
 
-The actual bug turned out to be in TitanEngine. The [ForceClose](https://bitbucket.org/titanengineupdate/titanengine-update/src/e089f4af41a461b69017db3750f79fbaed1008df/TitanEngine/TitanEngine.Debugger.Control.cpp?at=master&fileviewer=file-view-default#TitanEngine.Debugger.Control.cpp-34) function is supposed to close all the DLL handles from the current debug session, but some of these handles were already closed where the `UNLOAD_DLL_DEBUG_EVENT` is [handled](https://bitbucket.org/titanengineupdate/titanengine-update/src/e089f4af41a461b69017db3750f79fbaed1008df/TitanEngine/TitanEngine.Debugger.DebugLoop.cpp?at=master&fileviewer=file-view-default#TitanEngine.Debugger.DebugLoop.cpp-382).
+The actual bug turned out to be in TitanEngine. The [ForceClose](https://bitbucket.org/titanengineupdate/titanengine-update/src/e089f4af41a461b69017db3750f79fbaed1008df/TitanEngine/TitanEngine.Debugger.Control.cpp?at=master&fileviewer=file-view-default#TitanEngine.Debugger.Control.cpp-34) function is supposed to close all the DLL handles from the current debug session, but all of these handles were already closed at [the end](https://bitbucket.org/titanengineupdate/titanengine-update/src/f3626c717e25adea15870914087db803de8661a8/TitanEngine/TitanEngine.Debugger.DebugLoop.cpp?at=x64dbg&fileviewer=file-view-default#TitanEngine.Debugger.DebugLoop.cpp-336) of the same `LOAD_DLL_DEBUG_EVENT` handler.
 
 But how does the semaphore handle value come to be the same as a previous file handle? The answer to that puzzling question is given when you look at the flow of events:
 
 - `LOAD_DLL_DEBUG_EVENT` gets a file handle that is stored in the library list.
-- `UNLOAD_DLL_DEBUG_EVENT` closes said file handle during the debug session.
+- `LOAD_DLL_DEBUG_EVENT` immediately closes said file handle during the debug session.
 - The `static` initializer for the `TaskThread` is called when the debugger pauses for the first time and the semaphore is created with the same handle value as the (now closed) file handle from the `LOAD_DLL_DEBUG_EVENT`.
 - All goes well, *until* the `ForceClose` function is called and the file handle from `LOAD_DLL_DEBUG_EVENT` is closed once again.
 - Hell breaks loose because the `TaskThread` breaks.
