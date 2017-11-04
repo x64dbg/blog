@@ -3,6 +3,8 @@ layout: post
 title: The big handle gamble
 author: mrexodia
 website: https://mrexodia.cf
+contents: ["A shot in the dark", "Pushing our luck", "Winner winner chicken dinner!"]
+
 ---
 
 Yesterday I was debugging some programs and after restarting I saw that the status label stayed stuck on `Initializing`. At first it didn't seem to impact anything, but pretty soon after that other things started breaking as well.
