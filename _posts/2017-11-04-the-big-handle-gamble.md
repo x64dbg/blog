@@ -142,6 +142,50 @@ This time reproducing the issue gave some *very* useful results:
 
 The actual bug turned out to be in TitanEngine. The [ForceClose](https://bitbucket.org/titanengineupdate/titanengine-update/src/e089f4af41a461b69017db3750f79fbaed1008df/TitanEngine/TitanEngine.Debugger.Control.cpp?at=master&fileviewer=file-view-default#TitanEngine.Debugger.Control.cpp-34) function is supposed to close all the DLL handles from the current debug session, but all of these handles were already closed at [the end](https://bitbucket.org/titanengineupdate/titanengine-update/src/f3626c717e25adea15870914087db803de8661a8/TitanEngine/TitanEngine.Debugger.DebugLoop.cpp?at=x64dbg&fileviewer=file-view-default#TitanEngine.Debugger.DebugLoop.cpp-336) of the same `LOAD_DLL_DEBUG_EVENT` handler.
 
+```c++
+__declspec(dllexport) void TITCALL ForceClose()
+{
+    //manage process list
+    int processcount = (int)hListProcess.size();
+    for(int i = 0; i < processcount; i++)
+    {
+        EngineCloseHandle(hListProcess.at(i).hFile);
+        EngineCloseHandle(hListProcess.at(i).hProcess);
+    }
+    ClearProcessList();
+    //manage thread list
+    int threadcount = (int)hListThread.size();
+    for(int i = 0; i < threadcount; i++)
+        EngineCloseHandle(hListThread.at(i).hThread);
+    ClearThreadList();
+    //manage library list
+    int libcount = (int)hListLibrary.size();
+    for(int i = 0; i < libcount; i++)
+    {
+        if(hListLibrary.at(i).hFile != (HANDLE) - 1)
+        {
+            if(hListLibrary.at(i).hFileMappingView != NULL)
+            {
+                UnmapViewOfFile(hListLibrary.at(i).hFileMappingView);
+                EngineCloseHandle(hListLibrary.at(i).hFileMapping);
+            }
+            EngineCloseHandle(hListLibrary.at(i).hFile); // <-- this is there the bug happens
+        }
+    }
+    ClearLibraryList();
+
+    if(!engineProcessIsNowDetached)
+    {
+        StopDebug();
+    }
+    RtlZeroMemory(&dbgProcessInformation, sizeof PROCESS_INFORMATION);
+    if(DebugDebuggingDLL)
+        DeleteFileW(szDebuggerName);
+    DebugDebuggingDLL = false;
+    DebugExeFileEntryPointCallBack = NULL;
+}
+```
+
 But how does the semaphore handle value come to be the same as a previous file handle? The answer to that puzzling question is given when you look at the flow of events:
 
 - `LOAD_DLL_DEBUG_EVENT` gets a file handle that is stored in the library list.
