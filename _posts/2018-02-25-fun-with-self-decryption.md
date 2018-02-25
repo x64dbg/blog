@@ -3,6 +3,8 @@ layout: post
 title: Fun with self-decryption
 author: ViRb3
 website: https://github.com/ViRb3
+contents: []
+
 ---
 
 A month ago I was at the annual Hack Cambridge. Apart from all the programming and social fun I had, I also stumbled upon a daunting CTF challenge made by a team from Avast. In fact, it intrigued me so much that I took it home and finished it here. Among the puzzles there was a particularity interesting one - a binary that self-decrypted its code *twice* to reveal a secret message! We will solve that level today, with the help of x64dbg. More info about the challenge in the end.
