@@ -7,6 +7,8 @@ contents: []
 
 ---
 
+\[_This post was written by ViRb3, if you want to post on this blog you can! Go [here](/blog/2016/07/09/Looking-for-writers.html) for more information..._\]
+
 A month ago I was at the annual Hack Cambridge. Apart from all the programming and social fun I had, I also stumbled upon a daunting CTF challenge made by a team from Avast. In fact, it intrigued me so much that I took it home and finished it here. Among the puzzles there was a particularity interesting one - a binary that self-decrypted its code *twice* to reveal a secret message! We will solve that level today, with the help of x64dbg. More info about the challenge in the end.
 
 We are left with the following text after completing the previous parts of the level:
