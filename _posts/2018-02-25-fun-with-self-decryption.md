@@ -101,7 +101,7 @@ Before we continue, we analyze the following instructions:
 ![](https://i.imgur.com/eORohVk.png)
 
 While not necessary, we can deduce that this is essentially a **XOR decryption** loop.
-The code enclosed between `7714DAF0` - `7714DAF9` will loop for **0xC0** times, or **192**. Surely we won't want to `step over` that manually, so we select the instruction after the jump (`sub cl,5F`), and press `F2` or `right-click > Breakpoint > Toggle`) to place a breakpoint. Now `Run` the program (`F9`). When we break, we `step in` the next few instructions, until we jump to the second block, which is now decrypted.
+The code enclosed between `7714DAF0` - `7714DAF9` will loop for **0x64** times, or **100**. Surely we won't want to `step over` that manually, so we select the instruction after the jump (`sub cl,5F`), and press `F2` or `right-click > Breakpoint > Toggle`) to place a breakpoint. Now `Run` the program (`F9`). When we break, we `step in` the next few instructions, until we jump to the second block, which is now decrypted.
 
 We see the following instructions:
 
