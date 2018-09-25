@@ -293,14 +293,14 @@ SHA1: e97cd85c0ef125dd666315ea14d6c1b47d97f938
 SHA256: aee970d59e9fb314b559cf0c41dd2cd3c9c9b5dd060a339368000f975f4cd389
 ```
 
-[VirusTotal]( https://www.virustotal.com/en/file/aee970d59e9fb314b559cf0c41dd2cd3c9c9b5dd060a339368000f975f4cd389/analysis), [malwr](https://malwr.com/analysis/Mjk0NGFmZmY4MGJmNDdlOTkzNzA4ODc5YjcwZjU0OGY).
+[VirusTotal]( https://www.virustotal.com/en/file/aee970d59e9fb314b559cf0c41dd2cd3c9c9b5dd060a339368000f975f4cd389/analysis), [Hybrid-Analysis](https://www.hybrid-analysis.com/sample/aee970d59e9fb314b559cf0c41dd2cd3c9c9b5dd060a339368000f975f4cd389).
 
 ### Hashes (another sample)
 
 ```
-MD5: 3190c577746303ca4c65114441192fe2
-SHA1: e97cd85c0ef125dd666315ea14d6c1b47d97f938
-SHA256: aee970d59e9fb314b559cf0c41dd2cd3c9c9b5dd060a339368000f975f4cd389
+MD5: db262badd56d97652d5e726b7c2ed9df
+SHA1: 31a4910427f062c4641090b3721382fc7cf88648
+SHA256: 55bb0857c9f5bbd47ddc598ba67f276eb264f1fe225a06c6546bf1556ddf60d4
 ```
 
-[VirusTotal](https://www.virustotal.com/en/file/55bb0857c9f5bbd47ddc598ba67f276eb264f1fe225a06c6546bf1556ddf60d4/analysis), [FileMare](https://filemare.com/en-US/browse/31.28.106.81/Distrib/1C/1Cx64/x64/AladdinDriver/aksdf.sys).
+[VirusTotal](https://www.virustotal.com/en/file/55bb0857c9f5bbd47ddc598ba67f276eb264f1fe225a06c6546bf1556ddf60d4/analysis), [Hybrid-Analysis](https://www.hybrid-analysis.com/sample/55bb0857c9f5bbd47ddc598ba67f276eb264f1fe225a06c6546bf1556ddf60d4).
