@@ -2,7 +2,7 @@
 layout: post
 title: Weekly digest 11
 author: mrexodia
-website: http://mrexodia.cf
+website: https://mrexodia.github.io
 contents: ["More advanced conditional tracing", "Fixed more GUI update issues", "Remember history in goto file offset and RVA", "Reverted default behavior for null and nonprint characters", "Cleaner GUI look", "Traced background in reference, source and symbol view", "ScyllaHide", "Update trace record when changing CIP manually", "Allow skipping of INT3 instruction on run", "Command to print stack trace", "Set foreground on system breakpoint", "Option to not highlight operands separately", "Removed the toggle option for certain registers", "Translations", "Usual things"]
 
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: Type system
 author: mrexodia
-website: http://mrexodia.cf
+website: https://mrexodia.github.io
 contents: ["Internal representation", "Primitives", "Types", "Members", "StructUnions", "Functions", "Where is the tree?", "Visitor", "Conclusion"]
 
 ---

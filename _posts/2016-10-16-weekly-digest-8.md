@@ -2,7 +2,7 @@
 layout: post
 title: Weekly digest 8
 author: mrexodia
-website: http://mrexodia.cf
+website: https://mrexodia.github.io
 contents: ["GUID Reference Searching", "Graph comments", "Graph overview", "Added some expression functions", "Cross references dialog", "Graph debugging", "Freeze stack has been fixed", "Fixed complex memory assignments", "Execute multiple commands", "x64dbgbinja", "Refactor", "Tracing plugins", "Usual things"]
 
 ---

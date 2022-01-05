@@ -2,7 +2,7 @@
 layout: post
 title: Weekly digest 2
 author: mrexodia
-website: http://mrexodia.cf
+website: https://mrexodia.github.io
 contents: ["Font in the command completion dialog", "Added memdump option to savedata", "Fixed various general purpose instructions", "More usable disassembly popup", "Fixed empty watchdog menu", "Trace record tracing works again", "Animation into has been implemented!", "Better unicode support", "Execute a script on attach or initialize", "Create a thread in the debuggee", "Performance improvements in TitanEngine", "Auto scrolling when moving the mouse out of views", "Expression functions", "Allow modification of the singleshoot flag", "Added NTSTATUS codes", "Updated color schemes", "Final words"]
 
 ---

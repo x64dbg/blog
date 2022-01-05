@@ -2,7 +2,7 @@
 layout: post
 title: Weekly digest 7
 author: mrexodia
-website: http://mrexodia.cf
+website: https://mrexodia.github.io
 contents: ["Plugin page", "Variable list will now be shown in the reference view", "Fixed a crash in the pluginload command", "Added undo in registers view", "Hide actions in a submenu", "Better character recognition in the info box", "Character recognition in comments", "Goto origin in memory map", "Highlight jump lines in the sidebar if the destination is selected", "Various updates to the mnemonic database", "Open file/directory options for the source view", "Next/Previous/Hide tab", "Import/export database", "Better IsJumpGoingToExecute", "Usual stuff"]
 
 ---

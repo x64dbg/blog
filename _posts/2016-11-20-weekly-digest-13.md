@@ -2,7 +2,7 @@
 layout: post
 title: Weekly digest 13
 author: mrexodia
-website: http://mrexodia.cf
+website: https://mrexodia.github.io
 contents: ["This is an open blog!", "Decode function offset in stack", "Context menu in the xref dialog", "Removed buggy branch destination cache", "Added disassembly expression functions", "Added more advanced arguments in favourite tools", "Show better contextual information in the disassembler", "Various GUI improvements", "Icon for database files", "Fixed format in infobox", "Fixed find commands", "Don't consider reserved pages as valid memory", "Option for hardcore thread switch warnings", "Fixed unary operators", "Usual stuff"]
 
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: Weekly digest 6
 author: mrexodia
-website: http://mrexodia.cf
+website: https://mrexodia.github.io
 contents: ["Remove all breakpoints before detaching", "Warnings when trying to set CIP to a non-executable page", "Fixed event filter plugin callbacks with Qt5", "Refactor command-related code", "Import multiple patches", "Adjust width of status label for translations", "Active view API", "Highlight ud2 and ud2b as unusual instructions", "Optimized menu order in the register view", "Lots of code improvements", "Allow debugging of AnyCPU .NET files", "Clarified SetMemoryBPX command", "Improved follow in memory map", "Highlight active view in CPU", "Print symbolic name on expression command", "Performance improvement of disasm command", "Corrected width of the Hex short dump", "Fixed bug with endianness in the float register editor", "Performance improvement in plugin loader", "Type system", "Fail assembling short jumps that don't fit in 2 bytes", "Added plugin callback to filter symbols", "Show comments/labels in the bookmark list", "Use reference view for varlist", "Allow allocation at a specified address", "Use CIP per default in imageinfo", "Final words"]
 
 ---

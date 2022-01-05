@@ -2,7 +2,7 @@
 layout: post
 title: Weekly digest 16
 author: mrexodia
-website: http://mrexodia.cf
+website: https://mrexodia.github.io
 contents: ["Christmas", "x64dbgpylib", "Translations", "Restart as admin", "Secure symbol servers", "Fixed weird display issue on the tab bar", "Various copying enhancements", "Fixed a bug if IMAGE\_DOS\_HEADERS is malformed", "Fixed some bugs with handling big command lines", "Launcher improvements", "Load/free library in the symbols view", "String search improvements", "Don't change the active window when closing a tab", "Workaround for a capstone bug", "Improve autocomments", "Save and restore the window position and size", "Allow permanent highlighting mode", "Copy as HTML", "Usual things"]
 
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: Control flow analysis and graphing
 author: mrexodia
-website: http://mrexodia.cf
+website: https://mrexodia.github.io
 contents: ["Introduction", "Analysis", "GUI"]
 
 ---

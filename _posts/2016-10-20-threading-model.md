@@ -2,7 +2,7 @@
 layout: post
 title: The x64dbg threading model
 author: mrexodia
-website: http://mrexodia.cf
+website: https://mrexodia.github.io
 contents: ["Command loop thread", "Debug thread", "Script thread", "Worker threads", "TaskThread", "GUI Thread"]
 
 ---
@@ -15,7 +15,7 @@ The first thread of interest is the [command thread](https://github.com/x64dbg/x
 
 ## Debug thread
 
-The debug thread runs the [TitanEngine](https://bitbucket.org/titanengineupdate/titanengine-update) debug loop. It still works the same as [two years ago](http://mrexodia.cf/x64_dbg/2014/12/24/x64_dbg-from-top-to-bottom-1): 
+The debug thread runs the [TitanEngine](https://bitbucket.org/titanengineupdate/titanengine-update) debug loop. It still works the same as [two years ago](http://mrexodia.github.io/x64_dbg/2014/12/24/x64_dbg-from-top-to-bottom-1): 
 
 ![debug loop](https://i.imgur.com/ulOZUnN.png)
 

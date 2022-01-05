@@ -2,7 +2,7 @@
 layout: post
 title: Weekly digest 14
 author: mrexodia
-website: http://mrexodia.cf
+website: https://mrexodia.github.io
 contents: ["Types", "Fix log links and show suspected call stack frame", "Finished layered loop implementation", "Fixed 'cannot get module filename'", "Allow for more customization", "Usual things"]
 
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: Weekly digest 9
 author: mrexodia
-website: http://mrexodia.cf
+website: https://mrexodia.github.io
 contents: ["Autocomment for call $0", "Improvements to the disassembly popup", "Source line and autocomments", "Show CIP in graph overview", "Less jumpy experience while debugging in the graph", "Fine-grained dump offset control", "Allow checkable menu items for plugins", "Codename iconic", "Updated capstone, keystone and asmjit", "Copy as base64", "Callback for changed selection", "Analysis plugins", "Maximum trace count option", "Copy selection to file", "Disassembly speed improvements", "Reports", "Copy symbolic name", "Allow customizing of the main menus", "Fixed a bug with little/big endian when editing FPU registers", "Show extended exception information on exception events", "Final words"]
 
 ---

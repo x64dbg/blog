@@ -2,7 +2,7 @@
 layout: post
 title: Looking for writers!
 author: mrexodia
-website: http://mrexodia.cf
+website: https://mrexodia.github.io
 contents: ["Topics", "Writing a post"]
 
 ---

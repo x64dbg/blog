@@ -2,7 +2,7 @@
 layout: post
 title: Weekly digest 15
 author: mrexodia
-website: http://mrexodia.cf
+website: https://mrexodia.github.io
 contents: ["Log redirection encoding", "Properly enforce size limits for comments and labels", "Large address awareness", "Optimized logging speed", "Fixed a crash when clicking out of range in the side bar", "Updated Scylla", "Plugin API to get useful information about the current debuggee", "Various improvements to the type system", "More styles", "Case-insensitive regex search in symbol view", "GUI speed improvements", "Intercept more functions for crashdumps", "Don't change selection when the search text changes", "Make x64dbg run on Wine again", "Added more advanced plugin callbacks", "Print additional information on access violations", "Fixed incorrect detection of unary operators", "Remove breakpoints when clearing the database", "Fixed bug with searching in the memory map", "Improvements to the breakpoint view", "Find window in the attach dialog", "Usual stuff"]
 
 ---
