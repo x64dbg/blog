@@ -36,6 +36,12 @@ The search index is not only used to show memory dump. It can also be used to ac
  to load search index fully. Further usage no longer needs to load again. You can also go to specific instruction by address. Technically, this is the same as finding memory accesses to the address due to
  instruction execution. When the destination address is executed more than once, the Xref dialog appears, and you will be able to select one iteration of a loop.
 
+The "find pattern" command available in the dump, is another powerful tool. This command can be used to search for data in the trace recording.
+ Compared with searching directly in the memory, this command in the trace view finds the pattern anywhere in the trace, and works even in the cases where the pattern is moved or overwritten.
+ The user don't need to first pause at a point where the pattern is directly visible in memory - if the pattern ever exists while tracing, and is being used, then it will be found. It only finds what is in the trace, so irrelavant matches are also much fewer.
+ The start index and end index shown in the result list, indicates the index of instruction when the pattern first and last appeared in memory.
+ The instruction that writes the pattern in memory is also shown in the results.
+
 As part of trace view feature update, trace view now uses a tabbed design. It's now possible to open multiple trace files simultaneously.
 
 It's a big project for me as an x64dbg maintainer. These brand-new features, not being supported by other debuggers, are not so simple as its very intuitive user interface. I hope these new features are useful to the users.
