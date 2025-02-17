@@ -182,7 +182,7 @@ def annotate_strings_and_calls(client: X64DbgClient):
 
             # Resolve the symbol at the call destination and annotate
             resolved_sym = client.get_symbol_at(obf_call_qw)
-            client.set_label_at(mem.base_address + i + 13, resolved_sym.decoratedSymbol)
+            client.set_label_at(mem.base_address + i + 13, f'{resolved_sym.decoratedSymbol}_{mem.base_address:X}')
 
 
 if __name__ == "__main__":
