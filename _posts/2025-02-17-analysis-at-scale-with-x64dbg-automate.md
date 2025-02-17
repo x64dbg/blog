@@ -3,13 +3,13 @@ layout: post
 title: Analysis at Scale with x64dbg Automate
 author: darbonzo
 website: https://x64.ooo/
-contents: ["Background: Why Automate?", "Dynamic Analysis of a Malware Family", "A Quick Look Under the Hood", "Identifying Targets", "Automated Entrypoint Discovery", "Annotating the Payload", "Bypassing Anti-Debug", "Putting it all together"]
+contents: ["Background: Why Automate?", "Dynamic Analysis of a Malware Family", "A Quick Look Under the Hood", "Identifying Targets", "Automated Entrypoint Discovery", "Annotating the Payload", "Bypassing Anti-Debug", "Putting it all Together"]
 
 ---
 
 \[_This post was written by Darius Houle (darbonzo), if you want to post on this blog you can! Go [here](/blog/2016/07/09/Looking-for-writers.html) for more information..._\]
 
-In this article I'll be showcasing some of the thoughts and features behind [x64dbg Automate](https://dariushoule.github.io/x64dbg-automate-pyclient/), my automation solution for x64dbg. I designed the project with the goal of building on x64dbg's command execution engine and plugin API to provide an expressive, modern, and easy to use Python client library for the debugger. I use the project in a wide variety of malware analysis, reverse engineering, and vulnerability hunting tasks. 
+In this article I'll be showcasing some of the thoughts and features behind [x64dbg Automate](https://dariushoule.github.io/x64dbg-automate-pyclient/), my automation solution for x64dbg. I designed this project with the goal of building on x64dbg's command execution engine and plugin API to provide an expressive, modern, and easy to use Python client library. I use this project in a wide variety of malware analysis, reverse engineering, and vulnerability hunting tasks. 
 
 ## Background: Why Automate?
 
@@ -26,7 +26,7 @@ I like showing much more than talking though, so let's see how automation can he
 
 Let's pose a scenario where we have a large collection malware samples, and we'd like to:
 
-1. Identify common Family samples that employ a specific payload deployment methodology
+1. Identify common family samples that employ a specific payload deployment methodology
 2. Create reusable tools for entrypoint discovery, deobfuscation, and anti-debug bypass
 3. Create reusable tools for basic analysis tasks (annotation, extracting strings, and discovering intermodular calls)
 
@@ -137,7 +137,7 @@ if __name__ == "__main__":
     client.detach_session()
 ```
 
-The automation brings us to a point where we can disconnect our automation client and do additional analysis on the payload itself. With the heavy lifting of getting past the payload's decryption out of the way we can debug fearlessly, knowing we'll always be able to get back to important spots easily. 
+The automation brings us to a point where we can disconnect our client and do additional analysis on the payload itself. With the heavy lifting of getting past the payload's decryption out of the way we can debug fearlessly, knowing we'll always be able to get back to important spots easily. 
 
 ### Annotating the Payload
 
@@ -197,7 +197,7 @@ The result of this is a boon of helpful hints saved to our application database.
 
 ### Bypassing Anti-Debug
 
-Stepping through the payload at this point reveals two anti-debug measures employed. Let's modify our script to seek past anti-debug checks in addition to decryption, so we can debug fully unencumbered. 
+Stepping through the payload at this point reveals two anti-debug measures. Let's modify our script to seek past anti-debug checks in addition to decryption, so we can debug fully unencumbered. 
 
 ```python
 # Example 4: Circumvent and navigate past anti-debug
@@ -233,7 +233,7 @@ if __name__ == "__main__":
     client.detach_session()
 ```
 
-## Putting it all together
+## Putting it all Together
 
 Walking through this exercise showed us some powerful use-cases for x64dbg Automate. We scripted the entirety of our analysis, letting us access tricky execution states breezily. We also recorded our steps in a reliably reproducible way, opening the door for re-use, adaptation, and collaboration. 
 
