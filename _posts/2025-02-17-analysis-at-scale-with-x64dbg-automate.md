@@ -30,18 +30,31 @@ Let's pose a scenario where we have a large collection malware samples, and we'd
 2. Create reusable tools for entrypoint discovery, deobfuscation, and anti-debug bypass
 3. Create reusable tools for basic analysis tasks (annotation, extracting strings, and discovering intermodular calls)
 
-A de-fanged sample used for demonstration is available [here]({{ site.baseurl }}/public/files/dc59d01e485f2c2d0aa9176cda683dcf.7z) (password: x64dbg, [virustotal](https://www.virustotal.com/gui/file/225be43ffbb199d4993cc05934b0f4bc1e85676e38178e71811802320583e1bd/detection)), for any interested readers who would like to follow along. The sample is intentionally simplified for the sake of demonstration, but I'd encourage extrapolation to the bigger picture.
+A de-fanged sample used for demonstration is available [here]({{ site.baseurl }}/public/files/dc59d01e485f2c2d0aa9176cda683dcf.zip) (password: x64dbg), for any interested readers who would like to follow along. The sample is intentionally simplified for the sake of demonstration, but I'd encourage extrapolation to the bigger picture. 
 
 ### A Quick Look Under the Hood
 
 We'll start the demonstration with quick peek at a target sample. Examining it shows a malware family that embeds its payload in legitimate MSVC compiled binaries (in our case `7z.exe`). Note the clobbered c-runtime `_initterm` callback used to deploy the rogue payload.
 
-The payload itself has:
+[![annotations]({{ site.baseurl }}/public/images/2025-02-17-analysis-at-scale-with-x64dbg-automate/initterm.png)]({{ site.baseurl }}/public/images/2025-02-17-analysis-at-scale-with-x64dbg-automate/initterm.png)
 
+The payload itself has:
 - a matryoshka-esque self-decryption mechanism
+
+[![annotations]({{ site.baseurl }}/public/images/2025-02-17-analysis-at-scale-with-x64dbg-automate/decrypt.png)]({{ site.baseurl }}/public/images/2025-02-17-analysis-at-scale-with-x64dbg-automate/decrypt.png)
+
 - some basic anti-debug
+
+[![annotations]({{ site.baseurl }}/public/images/2025-02-17-analysis-at-scale-with-x64dbg-automate/antidbg.png)]({{ site.baseurl }}/public/images/2025-02-17-analysis-at-scale-with-x64dbg-automate/antidbg.png)
+
 - encrypted strings (sorry, [FLOSS](https://github.com/mandiant/flare-floss) won't help here 🫠)
+
+[![annotations]({{ site.baseurl }}/public/images/2025-02-17-analysis-at-scale-with-x64dbg-automate/strings.png)]({{ site.baseurl }}/public/images/2025-02-17-analysis-at-scale-with-x64dbg-automate/strings.png)
+
 - obfuscated intermodular calls
+
+[![annotations]({{ site.baseurl }}/public/images/2025-02-17-analysis-at-scale-with-x64dbg-automate/obf_call.png)]({{ site.baseurl }}/public/images/2025-02-17-analysis-at-scale-with-x64dbg-automate/obf_call.png)
+
 
 I'll leave exploration of the sample up to readers, and focus on the automation aspects of the exercise from here out.
 
@@ -94,14 +107,14 @@ The next time you're traversing an armored binary, think about the points in exe
 # For brevity only new code is shown
 from x64dbg_automate import X64DbgClient
 
-def seek_payload_entrypoint(client: X64DbgClient, sample: Path):
+def seek_payload_entrypoint(client: X64DbgClient):
     # Locate the payloads memory page
-    module_base = [mem for mem in client.memmap() if mem.info == sample.name][0]
+    module_base, _ = client.eval_sync("mod.main()")
     payload_mem_page = [mem for mem in client.memmap() if '.reloc' in mem.info 
-                        and mem.base_address > module_base.base_address][0]
+                        and mem.base_address > module_base][0]
     
     # Set an execution memory breakpoint on the payload's memory page
-    client.set_memory_breakpoint(payload_mem_page.base_address, restore=False)
+    client.set_memory_breakpoint(payload_mem_page.base_address, bp_type='x', restore=False)
     client.go() # Run to application entrypoint
     client.wait_until_stopped()
     client.go() # Run to memory breakpoint
@@ -109,8 +122,14 @@ def seek_payload_entrypoint(client: X64DbgClient, sample: Path):
 
     # Traverse N layers of decryption to find the entrypoint
     while True:
-        # If the instruction is not "mov rcx, XYZ" after a cycle, we've found the entrypoint
         addr = client.get_reg('rip')
+
+        # Make sure we haven't ended up outside the decryption function
+        if addr < payload_mem_page.base_address \
+            or addr >= payload_mem_page.base_address + payload_mem_page.region_size:
+            raise ValueError('Walking decryption was not successful, rip outside of expected bounds')
+
+        # If the instruction is not "mov rcx, XYZ" after a cycle, we've found the entrypoint
         ins = client.disassemble_at(addr)
         if not ins.instruction.startswith('mov rcx,'):
             break
@@ -133,7 +152,7 @@ if __name__ == "__main__":
     # ...
     client = X64DbgClient(r'E:\re\x64dbg_dev\release\x64\x64dbg.exe')
     client.start_session(str(sample))
-    seek_payload_entrypoint(client, sample)
+    seek_payload_entrypoint(client)
     client.detach_session()
 ```
 
@@ -146,10 +165,12 @@ Examining our sample at the entrypoint reveals some repeatable signatures that c
 ```python
 # Example 3: Annotate the payload with helpful string and call hints
 # For brevity only new code is shown
+from x64dbg_automate.models import ReferenceViewRef
 
 def annotate_strings_and_calls(client: X64DbgClient):
     mem = client.virt_query(client.get_reg('rip'))
     payload = client.read_memory(mem.base_address, mem.region_size)
+    refs = []
 
     # Search for string decryptors by pattern
     obf_string_pattern = bytes.fromhex('49 09 C6 49 81 CE CC 00 00 00 EB')
@@ -170,6 +191,10 @@ def annotate_strings_and_calls(client: X64DbgClient):
             else:
                 obf_str = obf_str[0:-2].decode()
             client.set_comment_at(mem.base_address + str_loc - 2, f"encoded string: '{obf_str}'")
+            refs.append(ReferenceViewRef(
+                address=mem.base_address + str_loc - 2,
+                text=f"encoded string: '{obf_str}'"
+            ))
 
     # Search for obfuscated intermodular calls by pattern
     obf_call_pattern = bytes.fromhex('49 BF DE C0 AD DE DE C0 AD DE')
@@ -183,7 +208,13 @@ def annotate_strings_and_calls(client: X64DbgClient):
             # Resolve the symbol at the call destination and annotate
             resolved_sym = client.get_symbol_at(obf_call_qw)
             client.set_label_at(mem.base_address + i + 13, f'{resolved_sym.decoratedSymbol}_{mem.base_address:X}')
+            refs.append(ReferenceViewRef(
+                address=mem.base_address + str_loc - 2,
+                text=f"obfuscated call: '{resolved_sym.decoratedSymbol}'"
+            ))
 
+    # Populate a reference view in the GUI with the found strings and calls
+    client.gui_show_reference_view("Obfuscated Calls and Strings", refs)
 
 if __name__ == "__main__":
     # ...
@@ -193,7 +224,11 @@ if __name__ == "__main__":
 
 The result of this is a boon of helpful hints saved to our application database. The more samples in this family of malware we analyze, the greater the value of having analysis automated ends up being. 
 
-[![annotations]({{ site.baseurl }}/public/images/2025-02-17-analysis-at-scale-with-x64dbg-automate-annotations.png)]({{ site.baseurl }}/public/images/2025-02-06-analysis-at-scale-with-x64dbg-automate-annotations.png)
+[![annotations]({{ site.baseurl }}/public/images/2025-02-17-analysis-at-scale-with-x64dbg-automate/annotations.png)]({{ site.baseurl }}/public/images/2025-02-17-analysis-at-scale-with-x64dbg-automate/annotations.png)
+
+Additionally, we can see a reference view populated with a summary of the findings.
+
+[![annotations]({{ site.baseurl }}/public/images/2025-02-17-analysis-at-scale-with-x64dbg-automate/refs.png)]({{ site.baseurl }}/public/images/2025-02-17-analysis-at-scale-with-x64dbg-automate/refs.png)
 
 ### Bypassing Anti-Debug
 
