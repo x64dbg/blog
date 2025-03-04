@@ -209,7 +209,7 @@ def annotate_strings_and_calls(client: X64DbgClient):
             resolved_sym = client.get_symbol_at(obf_call_qw)
             client.set_label_at(mem.base_address + i + 13, f'{resolved_sym.decoratedSymbol}_{mem.base_address:X}')
             refs.append(ReferenceViewRef(
-                address=mem.base_address + str_loc - 2,
+                address=mem.base_address + i + 13,
                 text=f"obfuscated call: '{resolved_sym.decoratedSymbol}'"
             ))
 
