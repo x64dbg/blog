@@ -23,11 +23,11 @@ I noticed how Holger had done it, and I wanted to try it as well, but instead ma
 
 Although I did not use these as reference, since I was unaware, it was brought to my attention that there is a lot of prior art on this subject matter already pertaining to x64dbg trace files as well.
 
-[https://github.com/mibho/x64dbgTraceReader](https://github.com/mibho/x64dbgTraceReader)
-[https://github.com/g0th1c54e4/x64dbg-trace-parser](https://github.com/g0th1c54e4/x64dbg-trace-parser)
-[https://github.com/survivalizeed/TraceViewer](https://github.com/survivalizeed/TraceViewer)
-[https://github.com/teemu-l/execution-trace-viewer](https://github.com/teemu-l/execution-trace-viewer)
-[https://github.com/mrexodia/dumpulator/blob/main/tests/x64dbg-tracedump.py](https://github.com/mrexodia/dumpulator/blob/main/tests/x64dbg-tracedump.py)
+1. [https://github.com/mibho/x64dbgTraceReader](https://github.com/mibho/x64dbgTraceReader)
+2. [https://github.com/g0th1c54e4/x64dbg-trace-parser](https://github.com/g0th1c54e4/x64dbg-trace-parser)
+3. [https://github.com/survivalizeed/TraceViewer](https://github.com/survivalizeed/TraceViewer)
+4. [https://github.com/teemu-l/execution-trace-viewer](https://github.com/teemu-l/execution-trace-viewer)
+5. [https://github.com/mrexodia/dumpulator/blob/main/tests/x64dbg-tracedump.py](https://github.com/mrexodia/dumpulator/blob/main/tests/x64dbg-tracedump.py)
 
 A reader may enjoy rummaging through the contents of those repositories and their code. 
 
