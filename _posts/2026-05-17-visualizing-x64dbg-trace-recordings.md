@@ -666,6 +666,7 @@ The view of a trace file provided by x64dbg's GUI can be improved in a few simpl
 Anyway, here would be the list:
 1. Allow the user to search the memory access information (e.g. accesses made to specific addresses)
 2. Allow the user to search for specific instructions (e.g. RDTSC)
+3. Allow the user to search for when thread ID changes (i.e. execution of a different thread is being recorded)
 
 Beyond that, in the [code base](https://github.com/x64dbg/x64dbg/blob/46fed4403e1a69139535d0d73405a6eebd59aef1/src/dbg/TraceRecord.cpp#L266) there are remnants of a **TO-DO** feature for implementing AVX512, which currently the trace files will not track the register changes for those wider registers.
 
