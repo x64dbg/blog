@@ -19,6 +19,20 @@ The initial inspiration for diving into this feature was viewing the slides of a
 
 I noticed how Holger had done it, and I wanted to try it as well, but instead make some of my own differing design decisions. Those differing decisions are those such as parsing the binary file instead of textual information, and only visualizing unique edges, rather than counting and displaying repeated flow to blocks of code.
 
+## Prior Art
+
+Although I did not use these as reference, since I was unaware, it was brought to my attention that there is a lot of prior art on this subject matter already pertaining to x64dbg trace files as well.
+
+[https://github.com/mibho/x64dbgTraceReader](https://github.com/mibho/x64dbgTraceReader)
+[https://github.com/g0th1c54e4/x64dbg-trace-parser](https://github.com/g0th1c54e4/x64dbg-trace-parser)
+[https://github.com/survivalizeed/TraceViewer](https://github.com/survivalizeed/TraceViewer)
+[https://github.com/teemu-l/execution-trace-viewer](https://github.com/teemu-l/execution-trace-viewer)
+[https://github.com/mrexodia/dumpulator/blob/main/tests/x64dbg-tracedump.py](https://github.com/mrexodia/dumpulator/blob/main/tests/x64dbg-tracedump.py)
+
+A reader may enjoy rummaging through the contents of those repositories and their code. 
+
+Onto our own discussion now.
+
 ## Surface Level
 
 The way that x64dbg presents this feature through its GUI sells it quite short, as you will soon come to learn. Maybe many others are not surprised that there is more than meets the eye. The feature as its presented to the end-user is still quite impressive, though. What I want you to know is that it goes much further in the later sections I will share.
@@ -395,7 +409,7 @@ typedef struct
 
 ### `X64DbgTraceFile` Mother Class
 
-In the end though, the trace file in my implementation becomes consumable through an instance of a `X64DbgTraceFile`, initialized like so
+In the end though, the trace file in my implementation becomes consumable through an instance of a `X64DbgTraceFile`, initialized like so:
 
 ```python
 def __init__(
@@ -429,7 +443,7 @@ def __init__(
         self.__trace_data_offset_start: int = current_offset
 ```
 
-where the file is parsed for preliminaries, for example detecting a known architecture, and finally finding a point where the binary trace data blocks would continue.
+Where the file is parsed for preliminaries, for example detecting a known architecture, and finally finding a point where the binary trace data blocks would continue.
 
 Those binary trace data blocks then become consumable for instruction execution variants through a property that acts as a `Generator`, allowing for efficient iteration over the binary data on-the-fly as opposed to fully lifting all binary data at once into a list of some sort.
 
@@ -545,9 +559,9 @@ The generic loop goes like this
             custom_data_block_count += 1
 ```
 
-During this loop, a graph is constructed carefully.
+During this loop, a graph is constructed iteratively.
 
-Even after the loop, some cleanup chores are performed just in case of a straggling node, to ensure the graph is complete. One such instance could be where there is only one block, or someone did not even reach a branching instruction at all during their trace.
+Even after the loop, some cleanup chores are performed just in case of a straggling node, to ensure the graph is complete. One such instance could be where there is only one block, or someone did not even reach a branching instruction during their trace that would terminate the current block, or even at all.
 
 ### Graph Construction
 
@@ -644,6 +658,20 @@ Finally, some of the results in the form of graph renditions will be shared belo
 ![image]({{ site.baseurl }}/public/images/result1.svg)
 ![image]({{ site.baseurl }}/public/images/result2.svg)
 ![image]({{ site.baseurl }}/public/images/result3.svg)
+
+## How can x64dbg's GUI be Improved?
+
+The view of a trace file provided by x64dbg's GUI can be improved in a few simple ways. All of which pertain to providing the user with greater access to the already rich amount of information contained in the binary.
+
+Anyway, here would be the list:
+1. Allow the user to search the memory access information (e.g. accesses made to specific addresses)
+2. Allow the user to search for specific instructions (e.g. RDTSC)
+
+Beyond that, in the [code base](https://github.com/x64dbg/x64dbg/blob/46fed4403e1a69139535d0d73405a6eebd59aef1/src/dbg/TraceRecord.cpp#L266) there are remnants of a **TO-DO** feature for implementing AVX512, which currently the trace files will not track the register changes for those wider registers.
+
+And, AVX512 will be old news soon with APX on the horizon (or maybe it is already here? I find it difficult to keep up with the news...). The **REGISTERCONTEXT** structures will need some updating, and so will trace file implementations. Though, there might not even be a Windows API function yet that would enable one to fetch the contents of those newly added general purpose registers. Maybe it will be called **GetThreadContextEx**, haha. Though, APX will require more than updates to the trace file, even the main **CPU** interface we all know and love for just stepping through a program will need to display more registers in the context pane.
+
+It will be interesting to see how compatibility is managed. Or maybe I am just being ridiculous as usual.
 
 ## Signing Off
 
