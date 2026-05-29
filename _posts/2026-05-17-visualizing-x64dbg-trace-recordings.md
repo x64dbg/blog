@@ -41,7 +41,7 @@ The way that x64dbg presents this feature through its GUI sells it quite short, 
 
 In essence, you can **start** a **Trace Recording**, trace through some instructions, **end** that recording, and then view a large list of what you have captured now in your output.
 
-The usefulness of this feature seems dubious at best. In a trace of potentially millions of instructions, you will not have much luck finding what you are looking for in the GUI. At least from my experience, the GUI does not even have features that make it simple to find occurrences of specific instructions, or much of anything else asied from scrolling the recorded list.
+The usefulness of this feature seems dubious at best. In a trace of potentially millions of instructions, you will not have much luck finding what you are looking for in the GUI. At least from my experience, the GUI does not even have features that make it simple to find occurrences of specific instructions, or much of anything else aside from scrolling the recorded list.
 
 ![image]({{ site.baseurl }}/public/images/trace_recording_window.png)
 
@@ -118,7 +118,7 @@ However, as one can tell, the binary trace data blocks are where it gets signifi
 
 One way that the format is engineered for compressibility is in how the altered register positions (`.EncodedRegisterChangePositions`) are encoded. Information on how those register change positions are decoded will follow in the next section, along with implementation code.
 
-In another aspect, the format saves on space by using bitfields and flags in clever ways. For example, the size of an opcode and whether the thread id is available in the binary trace data block are encoded as one byte field, `BlockFlagsAndOpcodeSizeBitfield`, with the least significant 4 bits occupied by the opcode size, and the most significant bit indicating the presence of a thread id. In another aspect, the `MemoryAccessFlags` help to determine whether a given memory access even modified memory whatsoever, and should be allowed to take up extra space in `MemoryAccessNewData`.
+In another aspect, the format saves on space by using bitfields and flags in clever ways. For example, the size of an opcode and whether the thread ID is available in the binary trace data block are encoded as one byte field, `BlockFlagsAndOpcodeSizeBitfield`, with the least significant 4 bits occupied by the opcode size, and the most significant bit indicating the presence of a thread ID. In another aspect, the `MemoryAccessFlags` help to determine whether a given memory access even modified memory whatsoever, and should be allowed to take up extra space in `MemoryAccessNewData`.
 
 ## Trace Visualizer Implementation
 
