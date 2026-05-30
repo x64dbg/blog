@@ -563,7 +563,7 @@ if (
 
 However, there is more to it than that.
 
-#### More on Support for SMC
+#### More on Support for Self-Modifying Code (SMC)
 
 There is the case where basic blocks could reside at the same address, but contain different instructions than they previously had. 
 
