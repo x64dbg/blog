@@ -184,9 +184,8 @@ To ease processing of instruction executions, I implemented a context to allow m
 
 ```python
 class InstructionExecutionContext:
-    def __init__(self, arch: Architecture, avx512: bool):
+    def __init__(self, arch: Architecture):
         self.__arch: Architecture = arch
-        self.__avx512: bool = avx512
 
         self.__reg_state: Dict[int, int] = {}
 
@@ -295,11 +294,9 @@ Some nuance is here in the fact that depending on the architecture, the position
 
 ```python
 IP_REGISTER_ABSOLUTE_INDEX_X64: int = 16
-IP_REGISTER_ABSOLUTE_INDEX_X64_AVX512: int = 16
 IP_REGISTER_ABSOLUTE_INDEX_X86: int = 8
 
 FLAGS_REGISTER_ABSOLUTE_INDEX_X64: int = 17
-FLAGS_REGISTER_ABSOLUTE_INDEX_X64_AVX512: int = 17
 FLAGS_REGISTER_ABSOLUTE_INDEX_X86: int = 9
 ```
 
@@ -318,17 +315,9 @@ typedef struct
     LASTERROR lastError;
     LASTSTATUS lastStatus;
 } REGDUMP;
-
-typedef struct
-{
-    REGISTERCONTEXT_AVX512 regcontext;
-    // To save space, original aliased fields (flags, x87FPURegisters, mmx, MxCsrFields, x87StatusWordFields, x87ControlWordFields) are removed, and can be found in regcontext.
-    DWORD lastError;
-    DWORD lastStatus;
-} REGDUMP_AVX512;
 ```
 
-One can even find further divergence with the `#ifdef` clauses present when representing `REGISTERCONTEXT(_AVX512)` structs.
+One can even find further divergence with the `#ifdef` clauses present when representing the `REGISTERCONTEXT` struct.
 
 ```cpp
 typedef struct
@@ -376,35 +365,6 @@ typedef struct
     YMMREGISTER YmmRegisters[8];
 #endif
 } REGISTERCONTEXT;
-
-typedef struct
-{
-    ULONG_PTR cax;
-    ULONG_PTR ccx;
-    ULONG_PTR cdx;
-    ULONG_PTR cbx;
-    ULONG_PTR csp;
-    ULONG_PTR cbp;
-    ULONG_PTR csi;
-    ULONG_PTR cdi;
-#ifdef _WIN64
-    ULONG_PTR r8;
-    ULONG_PTR r9;
-    ULONG_PTR r10;
-    ULONG_PTR r11;
-    ULONG_PTR r12;
-    ULONG_PTR r13;
-    ULONG_PTR r14;
-    ULONG_PTR r15;
-#endif //_WIN64
-    // ...
-#ifdef _WIN64
-    ZMMREGISTER ZmmRegisters[32];
-#else // x86
-    ZMMREGISTER ZmmRegisters[8];
-#endif
-    // ...
-} REGISTERCONTEXT_AVX512;
 ```
 
 ### `X64DbgTraceFile` Mother Class
@@ -416,11 +376,9 @@ def __init__(
         self,
         file_data: bytes,
         arch: Optional[Architecture] = None,
-        avx512: bool = False,
     ):
         self.__file_data: bytes = file_data
         self.__arch: Architecture = Architecture.UNKNOWN
-        self.__avx512: bool = avx512
 
         current_offset: int = 0
 
@@ -456,7 +414,7 @@ Those binary trace data blocks then become consumable for instruction execution 
         | CustomBlockResult
     ]:
 
-        exec_ctx = InstructionExecutionContext(self.__arch, self.__avx512)
+        exec_ctx = InstructionExecutionContext(self.__arch)
 
         current_offset: int = self.__trace_data_offset_start
 
@@ -651,6 +609,10 @@ options:
 -- author: www.terraphax.com --
 ```
 
+In hindsight, the script should also be supporting the case where someone traced through the instructions on an AMD processor, and have a switch for enabling the AMD-specific encodings supported by the instruction decoder. But, there is a chance that x64dbg might not be doing that either. Also the enablement or opposite direction for ISA extensions that may or may not be supported by the processor that gathered the runtime trace.
+
+
+
 ## Results
 
 Finally, some of the results in the form of graph renditions will be shared below. Many are graphs of obfuscated code.
@@ -667,6 +629,7 @@ Anyway, here would be the list:
 1. Allow the user to search the memory access information (e.g. accesses made to specific addresses)
 2. Allow the user to search for specific instructions (e.g. RDTSC)
 3. Allow the user to search for when thread ID changes (i.e. execution of a different thread is being recorded)
+4. Allow explicit choice of CPU vendor mode to AMD or Intel, and certain available ISA extensions for adjusting the instruction decoder to match the users current hardware (e.g. on some hardware `LZCNT` will instead be a `BSR`). These capabilities of the end-user hardware can also be automatically detected by x64dbg on startup, and embedded as metadata in the trace file JSON blob.
 
 Beyond that, in the [code base](https://github.com/x64dbg/x64dbg/blob/46fed4403e1a69139535d0d73405a6eebd59aef1/src/dbg/TraceRecord.cpp#L266) there are remnants of a **TO-DO** feature for implementing AVX512, which currently the trace files will not track the register changes for those wider registers.
 
