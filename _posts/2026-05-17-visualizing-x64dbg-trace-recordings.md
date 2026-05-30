@@ -634,10 +634,12 @@ Finally, some of the results in the form of graph renditions will be shared belo
 The view of a trace file provided by x64dbg's GUI can be improved in a few simple ways. All of which pertain to providing the user with greater access to the already rich amount of information contained in the binary.
 
 Anyway, here would be the list:
-1. Allow the user to search the memory access information (e.g. accesses made to specific addresses)
-2. Allow the user to search for specific instructions (e.g. RDTSC)
-3. Allow the user to search for when thread ID changes (i.e. execution of a different thread is being recorded)
-4. Allow explicit choice of CPU vendor mode to AMD or Intel, and certain available ISA extensions for adjusting the instruction decoder to match the users current hardware (e.g. on some hardware `LZCNT` will instead be a `BSR`). These capabilities of the end-user hardware can also be automatically detected by x64dbg on startup, and embedded as metadata in the trace file JSON blob.
+1. Allow the user to search for specific instructions (e.g. RDTSC)
+2. Allow the user to search for when thread ID changes (i.e. execution of a different thread is being recorded)
+3. Allow explicit choice of CPU vendor mode to AMD or Intel, and certain available ISA extensions for adjusting the instruction decoder to match the users current hardware (e.g. on some hardware `LZCNT` will instead be a `BSR`). These capabilities of the end-user hardware can also be automatically detected by x64dbg on startup, and embedded as metadata in the trace file JSON blob.
+
+And here are some things that the user might not already expect x64dbg to support, due to not having explored the GUI fully:
+1. The memory access information of the trace file can be searched through the `Xref` action in the right click menu when in the trace view. More on this feature can even be found in an unpublished blog article by torusrxxx which can be found [here](https://github.com/x64dbg/blog/pull/12).
 
 Beyond that, in the [code base](https://github.com/x64dbg/x64dbg/blob/46fed4403e1a69139535d0d73405a6eebd59aef1/src/dbg/TraceRecord.cpp#L266) there are remnants of a **TO-DO** feature for implementing AVX512, which currently the trace files will not track the register changes for those wider registers.
 
