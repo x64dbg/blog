@@ -110,7 +110,7 @@ struct BinaryTraceDataBlock {
 };
 ```
 
-Apologies for any mistakes made in haste of typing out this post, as it is meant to be casual and on-the-fly, and the real matter is in the implementation, to be frank.
+Apologies for any mistakes made in haste of typing out this post, as it is mostly done on-the-fly, and the real matter is in the implementation, to be frank.
 
 When it comes to binary trace data blocks, there are currently two kinds: one for a recorded instruction execution (when `Block.Kind == 0`), and another reserved for custom data insertion (when `Block.Kind >= 0x80`).
 
@@ -645,9 +645,13 @@ And, AVX512 will be old news soon with APX on the horizon (or maybe it is alread
 
 It will be interesting to see how compatibility is managed. Or maybe I am just being ridiculous as usual.
 
+## Acknowledgment
+
+Thanks to [mrexodia](https://github.com/mrexodia) and [torusrxxx](https://github.com/torusrxxx) for their feedback on the blog post during its draft phase before publishing.
+
 ## Signing Off
 
-Closing out this casual post now...
+Closing out this post now...
 
 Enjoy the eye candy that x64dbg allows you to create,
 
