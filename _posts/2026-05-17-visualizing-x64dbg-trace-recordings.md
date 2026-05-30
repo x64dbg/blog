@@ -444,7 +444,7 @@ Those binary trace data blocks then become consumable for instruction execution 
 
 ### Walking the Instruction Executions
 
-The generic loop goes like this
+The generic loop goes like this:
 
 ```python
     # ...
@@ -523,7 +523,11 @@ The generic loop goes like this
 
 During this loop, a graph is constructed iteratively.
 
-Even after the loop, some cleanup chores are performed just in case of a straggling node, to ensure the graph is complete. One such instance could be where there is only one block, or someone did not even reach a branching instruction during their trace that would terminate the current block, or even at all.
+The general idea is to walk for branches and lazily stitch them together as progress through the trace file is made.
+
+There are some caveats though to gathering control flow from a trace. A trace can end at any given point, even before a terminating instruction has been reached. 
+
+Therefore, even after the loop, some cleanup chores are performed just in case of a straggling node, to ensure the graph is complete. One such instance could be where there is only one block, or someone did not even reach a branching instruction during their trace that would terminate the current block, or even at all.
 
 ### Graph Construction
 
