@@ -178,6 +178,10 @@ def decode_register_changes_to_absolute_indexes_inplace(encoded_idxs: List[int])
         addend = 1
 ```
 
+The encoding that x64dbg uses for these register change positions is incredible, because when a binary trace data block changes all registers, all entries in the array before decoding are just a bunch of zeros. Yes, `0`s... 
+
+This means that compression is trivial, as you can just compress the data by specifying what data was there. Say, a `0`. And then appending the number of times that data should have existed previously in the stream. Say that there were 255 zeroes. You can instead encode 255 bytes as 2, `00 FF`.
+
 ### Tracking Instruction Execution 
 
 To ease processing of instruction executions, I implemented a context to allow myself to track the state of the program, at least as much as is possible.
