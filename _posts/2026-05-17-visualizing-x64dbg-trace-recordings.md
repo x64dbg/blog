@@ -37,17 +37,17 @@ Onto our own discussion now.
 
 The way that x64dbg presents this feature through its GUI sells it quite short, as you will soon come to learn. Maybe many others are not surprised that there is more than meets the eye. The feature as its presented to the end-user is still quite impressive, though. What I want you to know is that it goes much further in the later sections I will share.
 
-![image]({{ site.baseurl }}/public/images/start_trace_recording.png)
+![image]({{ site.baseurl }}/public/images/terraphax/start_trace_recording.png)
 
 In essence, you can **start** a **Trace Recording**, trace through some instructions, **end** that recording, and then view a large list of what you have captured now in your output.
 
 The usefulness of this feature seems dubious at best. In a trace of potentially millions of instructions, you will not have much luck finding what you are looking for in the GUI. At least from my experience, the GUI does not even have features that make it simple to find occurrences of specific instructions, or much of anything else aside from scrolling the recorded list.
 
-![image]({{ site.baseurl }}/public/images/trace_recording_window.png)
+![image]({{ site.baseurl }}/public/images/terraphax/trace_recording_window.png)
 
 As promised before though, there is more to this feature than the GUI. And it all starts when you first **start** the trace. You see, the prompt asks where you want to save the **trace file**.
 
-![image]({{ site.baseurl }}/public/images/save_trace_file_where.png)
+![image]({{ site.baseurl }}/public/images/terraphax/save_trace_file_where.png)
 
 This trace file is stored in a very special binary format, and by the end of your trace is chock-full of a motherload of information that you can extract, and use for your own purposes.
 
@@ -72,7 +72,11 @@ struct X64DbgTraceFileHeader {
 };
 ```
 
-In sum, the header begins with a **magic word**, that should be equivalent to the ASCII string "TRAC". Then, a **JSON blob** is specified by its length and then a buffer of that length containing data that can be parsed as JSON. This JSON blob contains extraneous information, but most importantly, in the event that one does not know which version of x64dbg it was saved on (e.g. whether x32 or x64), there is an attribute that specifies which architecture the trace file was for. This enables software that parses the trace file to for example, select a different instruction decoder e.g. X86 instead of AMD64, when processing the **binary trace data blocks**.
+In sum, the header begins with a **magic word**, that should be equivalent to the ASCII string "TRAC". 
+
+Then, a **JSON blob** is specified by its length and then a buffer of that length containing data that can be parsed as JSON. This JSON blob contains extraneous information, but most importantly, in the event that one does not know which version of x64dbg it was saved on (e.g. whether x32 or x64), there is an attribute that specifies which architecture the trace file was for. This enables software that parses the trace file to for example, select a different instruction decoder e.g. X86 instead of AMD64, when processing the **binary trace data blocks**.
+
+![image]({{ site.baseurl }}/public/images/terraphax/hex_view_json_data.png)
 
 ### Binary Trace Data Blocks
 
@@ -625,9 +629,9 @@ In hindsight, the script should also be supporting the case where someone traced
 
 Finally, some of the results in the form of graph renditions will be shared below. Many are graphs of obfuscated code.
 
-![image]({{ site.baseurl }}/public/images/result1.svg)
-![image]({{ site.baseurl }}/public/images/result2.svg)
-![image]({{ site.baseurl }}/public/images/result3.svg)
+![image]({{ site.baseurl }}/public/images/terraphax/result1.svg)
+![image]({{ site.baseurl }}/public/images/terraphax/result2.svg)
+![image]({{ site.baseurl }}/public/images/terraphax/result3.svg)
 
 ## How can x64dbg's GUI be Improved?
 
