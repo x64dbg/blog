@@ -3,7 +3,7 @@ layout: post
 title: Kernel driver unpacking
 author: mrexodia
 website: https://mrexodia.github.io
-contents: ["Initial analysis", "Faking the kernel imports", "Unpacking", "Finding a faster way of unpacking", "Dumping + Rebuilding", "Conclusion"]
+contents: ["Initial analysis", "Faking the kernel imports", "Unpacking", "Finding a faster way of unpacking", "Dumping + Rebuilding", "Conclusion", "Hashes (sample used here)", "Hashes (another sample)"]
 
 ---
 

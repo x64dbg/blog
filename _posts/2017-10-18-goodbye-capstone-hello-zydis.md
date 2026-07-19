@@ -3,6 +3,8 @@ layout: post
 title: Goodbye Capstone, hello Zydis!
 author: athre0z
 website: https://zyantific.com
+contents: []
+
 ---
 
 Full disclosure: I'm a co-author of Zydis. Opinions certainly biased.
